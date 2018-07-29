@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 class ShowWeather extends React.Component {
@@ -9,9 +8,9 @@ class ShowWeather extends React.Component {
     super(props);
     this.state = {
       main: "",
-      temperature: ""
+      temperature: "",
+      wind: ""
     };
-
   }
 
   componentDidMount() {
@@ -21,7 +20,8 @@ class ShowWeather extends React.Component {
         (result) => {
                 this.setState({
                   main: result.weather[0].main,
-                  temperature: result.main.temp
+                  temperature: result.main.temp,
+                  wind: result.wind.speed
                 });
             },
           )
@@ -32,6 +32,7 @@ class ShowWeather extends React.Component {
       <div style={{position: "absolute", top: "30%", left: "20%"}}>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#4182BD"}}>{this.state.main}</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#BD4141"}}>{this.state.temperature}˚C</p>
+        <p style={{fontFamily: "Arial", fontSize: 40, color: "#43A12C"}}>{this.state.wind} m/s</p>
       </div>
   )
 }
