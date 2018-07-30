@@ -30,7 +30,7 @@ class ShowWeather extends React.Component {
   render() {
     return (
       <div style={{position: "absolute", top: "30%", left: "20%"}}>
-        <p style={{fontFamily: "Arial", fontSize: 40, color: "#4182BD"}}>{this.state.main}</p>
+        <p style={{fontFamily: "Arial", fontSize: 40, color: "#4182BD"}}>Sky: {this.state.main}</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#BD4141"}}>{this.state.temperature}˚C</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#43A12C"}}>{this.state.wind} m/s</p>
       </div>
