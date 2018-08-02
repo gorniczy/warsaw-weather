@@ -9,9 +9,9 @@ class ShowWeather extends React.Component {
     this.state = {
       main: "",
       temperature: "",
-      wind: ""
-    };
+      wind: "",
   }
+}
 
   componentDidMount() {
     fetch("http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=b5daf7d7450518f7ba259ab775096921&units=metric")
@@ -28,11 +28,16 @@ class ShowWeather extends React.Component {
         }
 
   render() {
+    /*var date = new Date();
+    var day = ["ND", "PN", "WT", "ŚR", "CZW", "PT", "SB"];
+    var month = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];*/
     return (
       <div style={{position: "absolute", top: "30%", left: "20%"}}>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#4182BD"}}>Main: {this.state.main}</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#BD4141"}}>{this.state.temperature}˚C</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#43A12C"}}>{this.state.wind} m/s</p>
+        /*<p style={{fontFamily: "Arial", fontSize: 25, color: "#4C4C4C"}}>{day[date.getDay()]}, {date.getDate()}.{month[date.getMonth()]}.{date.getFullYear()}, {date.getHours()}:{date.getMinutes()}</p>*/
+        /*<DateTime />*/
       </div>
   )
 }
