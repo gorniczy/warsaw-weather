@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { DateTime } from './DateTime';
 import registerServiceWorker from './registerServiceWorker';
 
 class ShowWeather extends React.Component {
@@ -11,9 +12,22 @@ class ShowWeather extends React.Component {
       temperature: "",
       wind: "",
   }
+  this.loadWeather = this.loadWeather.bind(this);
 }
 
   componentDidMount() {
+        this.loadWeather();
+        this.update = setInterval(
+          () => this.loadWeather(),
+          300000
+        );
+        }
+
+  componentWillUnmount() {
+    clearInterval(this.update);
+  }
+
+  loadWeather() {
     fetch("http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=b5daf7d7450518f7ba259ab775096921&units=metric")
       .then(res => res.json())
       .then(
@@ -24,20 +38,16 @@ class ShowWeather extends React.Component {
                   wind: result.wind.speed
                 });
             },
-          )
-        }
+          );
+  }
 
   render() {
-    /*var date = new Date();
-    var day = ["ND", "PN", "WT", "ŚR", "CZW", "PT", "SB"];
-    var month = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];*/
     return (
       <div style={{position: "absolute", top: "30%", left: "20%"}}>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#4182BD"}}>Main: {this.state.main}</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#BD4141"}}>{this.state.temperature}˚C</p>
         <p style={{fontFamily: "Arial", fontSize: 40, color: "#43A12C"}}>{this.state.wind} m/s</p>
-        /*<p style={{fontFamily: "Arial", fontSize: 25, color: "#4C4C4C"}}>{day[date.getDay()]}, {date.getDate()}.{month[date.getMonth()]}.{date.getFullYear()}, {date.getHours()}:{date.getMinutes()}</p>*/
-        /*<DateTime />*/
+        <DateTime />
       </div>
   )
 }
