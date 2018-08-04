@@ -1,25 +1,22 @@
 import React from 'react';
 
-const date = new Date();
-const day = ["ND", "PN", "WT", "ŚR", "CZW", "PT", "SB"];
-const month = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
-
 export class DateTime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      year: date.getFullYear(),
-      month: month[date.getMonth()],
-      date: date.getDate(),
-      day: day[date.getDay()],
-      time: ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2)
+      year: "",
+      month: "",
+      date: "",
+      day: "",
+      time: ""
     }
-    this.updateTime = this.updateTime.bind(this);
+    this.loadTime = this.loadTime.bind(this);
   }
 
 componentDidMount() {
-   this.timer = setInterval(
-    () => this.updateTime(),
+  this.loadTime();
+  this.timer = setInterval(
+    () => this.loadTime(),
     1000
   );
 }
@@ -28,8 +25,10 @@ componentWillUnmount() {
   clearInterval(this.timer);
 }
 
-  updateTime() {
-      const date = new Date();
+  loadTime() {
+    const date = new Date();
+    const day = ["ND", "PN", "WT", "ŚR", "CZW", "PT", "SB"];
+    const month = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
             this.setState({
               year: date.getFullYear(),
               month: month[date.getMonth()],
