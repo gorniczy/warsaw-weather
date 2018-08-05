@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { DateTime } from './DateTime';
 import { Weather } from './Weather';
+import { Button } from './Button';
 import registerServiceWorker from './registerServiceWorker';
 
 class ShowWeather extends React.Component {
@@ -44,9 +45,12 @@ class ShowWeather extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
-        <DateTime />
+      <div>
+        <Button className="btn" />
+        <div className="container">
+          <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
+          <DateTime />
+        </div>
       </div>
   )
 }

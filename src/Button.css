@@ -1,0 +1,24 @@
+/* {
+  outline: 1px solid red;
+}*/
+
+.dropdown {
+  display: none;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+}
+
+.btn:hover .dropdown {
+  position: absolute;
+  display: block;
+}
+
+.dropdown a {
+  position: relative;
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+}
