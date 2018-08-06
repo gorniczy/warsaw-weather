@@ -6,8 +6,13 @@ export class Button extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     }
+    this.changeSkin = this.changeSkin.bind(this);
+  }
+
+  changeSkin(e) {
+    const skin = e.target.value;
+    this.props.skin(skin);
   }
 
   render() {
@@ -15,9 +20,9 @@ export class Button extends React.Component {
       <div className="btn">
         <img src={btn_img} alt="button image" />
         <div className="dropdown">
-          <a href="">Ochota</a>
-          <a href="">Wola</a>
-          <a href="">Mokotów</a>
+          <a href="" onClick={this.changeSkin} value="Ochota">Ochota</a>
+          <a href="" onClick={this.changeSkin} value="Wola">Wola</a>
+          <a href="" onClick={this.changeSkin} value="Mokotów">Mokotów</a>
         </div>
       </div>
     );

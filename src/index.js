@@ -4,6 +4,7 @@ import './index.css';
 import { DateTime } from './DateTime';
 import { Weather } from './Weather';
 import { Button } from './Button';
+import { Skin } from './Skin';
 import registerServiceWorker from './registerServiceWorker';
 
 class ShowWeather extends React.Component {
@@ -13,8 +14,10 @@ class ShowWeather extends React.Component {
       main: "",
       temperature: "",
       wind: "",
+      skin: ""
   }
   this.loadWeather = this.loadWeather.bind(this);
+  this.handleSkinChange = this.handleSkinChange.bind(this);
 }
 
   componentDidMount() {
@@ -43,10 +46,18 @@ class ShowWeather extends React.Component {
           );
   }
 
+
+  handleSkinChange(skin) {
+    this.setState({
+      skin: {skin}
+    })
+  }
+
   render() {
     return (
       <div>
-        <Button className="btn" />
+        <Skin value={this.state.skin} />
+        <Button className="btn" skin={this.handleSkinChange} />
         <div className="container">
           <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
           <DateTime />
