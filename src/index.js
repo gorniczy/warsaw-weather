@@ -47,10 +47,10 @@ class ShowWeather extends React.Component {
   }
 
 
-  handleSkinChange(skin) {
+  handleSkinChange(x) {
     this.setState({
-      skin: {skin}
-    })
+      skin: x
+    });
   }
 
   render() {

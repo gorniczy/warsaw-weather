@@ -11,8 +11,8 @@ export class Button extends React.Component {
   }
 
   changeSkin(e) {
-    const skin = e.target.value;
-    this.props.skin(skin);
+    const skinName = e.target.text;
+    this.props.skin(skinName);
   }
 
   render() {
@@ -20,9 +20,9 @@ export class Button extends React.Component {
       <div className="btn">
         <img src={btn_img} alt="button image" />
         <div className="dropdown">
-          <a href="" onClick={this.changeSkin} value="Ochota">Ochota</a>
-          <a href="" onClick={this.changeSkin} value="Wola">Wola</a>
-          <a href="" onClick={this.changeSkin} value="Mokotów">Mokotów</a>
+          <a onClick={this.changeSkin} text="Ochota">Ochota</a>
+          <a onClick={this.changeSkin} text="Wola">Wola</a>
+          <a onClick={this.changeSkin} text="Mokotów">Mokotów</a>
         </div>
       </div>
     );
