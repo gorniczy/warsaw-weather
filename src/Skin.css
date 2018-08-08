@@ -1,5 +1,9 @@
 .title {
   position: absolute;
+  top: 1rem;
   left: 8rem;
   font-family: Arial;
+  font-size: 50px;
+  margin: 0;
+  color: #4C4C4C;
 }

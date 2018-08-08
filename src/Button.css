@@ -8,6 +8,8 @@
 
 .btn {
   position: relative;
+  top: 2rem;
+  left: 2rem;
   display: inline-block;
 }
 
