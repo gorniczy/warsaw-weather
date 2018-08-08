@@ -20,12 +20,26 @@ class ShowWeather extends React.Component {
   this.handleSkinChange = this.handleSkinChange.bind(this);
 }
 
+  componentWillMount() {
+    this.setState({
+      skin: JSON.parse(localStorage.getItem('data'))
+    })
+  }
+
   componentDidMount() {
         this.loadWeather();
         this.update = setInterval(
           () => this.loadWeather(),
           300000
         );
+
+        this.setState({
+
+        })
+        }
+
+  componentWillUpdate(nextProps, nextState) {
+          localStorage.setItem('data', JSON.stringify(nextState.skin));
         }
 
   componentWillUnmount() {
