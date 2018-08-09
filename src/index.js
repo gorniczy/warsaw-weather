@@ -5,12 +5,14 @@ import { DateTime } from './DateTime';
 import { Weather } from './Weather';
 import { Button } from './Button';
 import { Skin } from './Skin';
+import { Title } from './Title';
 import registerServiceWorker from './registerServiceWorker';
 
 class ShowWeather extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: true,
       main: "",
       temperature: "",
       wind: "",
@@ -18,11 +20,13 @@ class ShowWeather extends React.Component {
   }
   this.loadWeather = this.loadWeather.bind(this);
   this.handleSkinChange = this.handleSkinChange.bind(this);
+  this.handleSetSkin = this.handleSetSkin.bind(this);
 }
 
   componentWillMount() {
     this.setState({
-      skin: JSON.parse(localStorage.getItem('data'))
+      title: JSON.parse(localStorage.getItem('title')),
+      skin: JSON.parse(localStorage.getItem('skin'))
     })
   }
 
@@ -39,7 +43,8 @@ class ShowWeather extends React.Component {
         }
 
   componentWillUpdate(nextProps, nextState) {
-          localStorage.setItem('data', JSON.stringify(nextState.skin));
+          localStorage.setItem('title', JSON.stringify(nextState.title));
+          localStorage.setItem('skin', JSON.stringify(nextState.skin));
         }
 
   componentWillUnmount() {
@@ -61,23 +66,36 @@ class ShowWeather extends React.Component {
   }
 
 
-  handleSkinChange(x) {
+  handleSkinChange(skin) {
     this.setState({
-      skin: x
+      skin: skin
     });
   }
 
+  handleSetSkin(skin) {
+    this.setState({
+      title: false,
+      skin: skin
+    })
+  }
+
   render() {
-    return (
-      <div>
-        <Skin value={this.state.skin} />
-        <Button className="btn" skin={this.handleSkinChange} />
-        <div className="container">
-          <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
-          <DateTime />
+    if (this.state.title) {
+      return <Title title={this.handleSetSkin} />
+    }
+
+    else {
+      return (
+        <div>
+          <Skin value={this.state.skin} />
+          <Button className="btn" skin={this.handleSkinChange} />
+          <div className="container">
+            <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
+            <DateTime />
+          </div>
         </div>
-      </div>
-  )
+    )
+  }
 }
 
 }
