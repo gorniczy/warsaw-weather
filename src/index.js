@@ -76,7 +76,7 @@ class ShowWeather extends React.Component {
     this.setState({
       title: false,
       skin: skin
-    })
+    });
   }
 
   render() {
