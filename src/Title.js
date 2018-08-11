@@ -1,5 +1,7 @@
 import React from 'react';
 import title_img from './img/Title-background.png';
+import logo from './img/logo.png'
+import './Title.css';
 
 export class Title extends React.Component {
   constructor(props) {
@@ -23,10 +25,10 @@ export class Title extends React.Component {
 
   render() {
     return (
-      <div>
-        <a href="#" onClick={this.setSkin} text="Ochota">Ochota</a>
-        <a href="#" onClick={this.setSkin} text="Wola">Wola</a>
-        <a href="#" onClick={this.setSkin} text="Mokotów">Mokotów</a>
+      <div className="content">
+        <img className="logo" src={logo} alt="logo" />
+        <a className="districts" href="#" onClick={this.setSkin} text="Ochota">OCHOTA</a>
+        <a className="districts" href="#" onClick={this.setSkin} text="Wola">WOLA</a>          <a className="districts" href="#" onClick={this.setSkin} text="Mokotów">MOKOTÓW</a>
       </div>
     );
   }
