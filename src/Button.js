@@ -5,8 +5,7 @@ import './Button.css';
 export class Button extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
+    this.state = {}
     this.changeSkin = this.changeSkin.bind(this);
   }
 

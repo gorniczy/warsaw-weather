@@ -28,7 +28,8 @@ export class Title extends React.Component {
       <div className="content">
         <img className="logo" src={logo} alt="logo" />
         <a className="districts" href="#" onClick={this.setSkin} text="Ochota">OCHOTA</a>
-        <a className="districts" href="#" onClick={this.setSkin} text="Wola">WOLA</a>          <a className="districts" href="#" onClick={this.setSkin} text="Mokotów">MOKOTÓW</a>
+        <a className="districts" href="#" onClick={this.setSkin} text="Wola">WOLA</a>
+        <a className="districts" href="#" onClick={this.setSkin} text="Mokotów">MOKOTÓW</a>
       </div>
     );
   }
