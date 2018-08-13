@@ -25,7 +25,7 @@ class ShowWeather extends React.Component {
 
   componentWillMount() {
     this.setState({
-//    title: JSON.parse(localStorage.getItem('title')),
+      title: JSON.parse(localStorage.getItem('title')),
       skin: JSON.parse(localStorage.getItem('skin'))
     })
   }
