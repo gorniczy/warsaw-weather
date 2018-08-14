@@ -6,6 +6,9 @@ import { Weather } from './Weather';
 import { Button } from './Button';
 import { Skin } from './Skin';
 import { Title } from './Title';
+import { WeatherSymbol } from './WeatherSymbol';
+import day_img from './img/Day-background.png';
+import night_img from './img/Night-background.png';
 import registerServiceWorker from './registerServiceWorker';
 
 class ShowWeather extends React.Component {
@@ -27,7 +30,18 @@ class ShowWeather extends React.Component {
     this.setState({
       title: JSON.parse(localStorage.getItem('title')),
       skin: JSON.parse(localStorage.getItem('skin'))
-    })
+    });
+
+// Set 'day' or 'night' background basing on the hour
+
+    const time = new Date().getHours();
+
+    if (time > 6 && time < 20) {
+      document.body.style.backgroundImage = "url(" + day_img + ")";
+    }
+    else {
+      document.body.style.backgroundImage = "url(" + night_img + ")";
+    }
   }
 
   componentDidMount() {
@@ -86,10 +100,15 @@ class ShowWeather extends React.Component {
         <div>
           <Skin value={this.state.skin} />
           <Button className="btn" skin={this.handleSkinChange} />
+          <WeatherSymbol className="smb" />
           <div className="container">
             <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
             <DateTime />
           </div>
+          {this.state.skin === "Ochota" && <div className="nav_box_1"></div>}
+          {this.state.skin === "Wola" && <div className="nav_box_2"></div>}
+          {this.state.skin === "Mokotów" && <div className="nav_box_3"></div>}
+          <div className="box_1"></div>
         </div>
     )
   }
