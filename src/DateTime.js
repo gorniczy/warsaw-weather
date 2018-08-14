@@ -1,4 +1,5 @@
 import React from 'react';
+import './DateTime.css';
 
 export class DateTime extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ componentWillUnmount() {
 
   render() {
     return (
-      <p style={{fontFamily: "Arial", fontSize: 25, color: "#4C4C4C"}}>{this.state.day}, {this.state.date}.{this.state.month}.{this.state.year}, {this.state.time}</p>
+      <p className="date_time">{this.state.day}, {this.state.date}.{this.state.month}.{this.state.year}, {this.state.time}</p>
     );
   }
 }
