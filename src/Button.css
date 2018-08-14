@@ -8,14 +8,20 @@
 
 .btn {
   position: relative;
-  top: 2rem;
+  top: 1.9rem;
   left: 2rem;
+  padding-bottom: 1rem;
   display: inline-block;
 }
 
 .btn:hover .dropdown {
   position: absolute;
+  top: 2.5rem;
+  left: -1.2rem;
   display: block;
+  opacity: 0.87;
+  background: #FFFDFD;
+  border-radius: 12px;
 }
 
 .dropdown a {
@@ -23,6 +29,22 @@
   display: block;
   padding: 1rem;
   font-family: Arial;
-  color: #4C4C4C;
+  color: #000000;
   text-decoration: none;
+}
+
+.dropdown a:nth-of-type(1):hover {
+  background: #E4DFDF;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.dropdown a:nth-of-type(2):hover {
+  background: #E4DFDF;
+}
+
+.dropdown a:nth-of-type(3):hover {
+  background: #E4DFDF;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
