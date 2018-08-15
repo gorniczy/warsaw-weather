@@ -36,7 +36,7 @@ class ShowWeather extends React.Component {
 
     const time = new Date().getHours();
 
-    if (time > 6 && time < 20) {
+    if (time > 6 && time < 21) {
       document.body.style.backgroundImage = "url(" + day_img + ")";
     }
     else {
@@ -75,7 +75,6 @@ class ShowWeather extends React.Component {
             },
           );
   }
-
 
   handleSkinChange(skin) {
     this.setState({
