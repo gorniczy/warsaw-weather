@@ -1,23 +1,26 @@
-/* {
-  outline: 1px solid red;
-}*/
-
 .dropdown {
   display: none;
 }
 
 .btn {
   position: absolute;
-  top: 2.4rem;
-  left: 2rem;
-  padding-bottom: 1rem;
+  top: 4.8%;
+  left: 2.5%;
   display: inline-block;
+}
+
+.btn_img {
+  position: absolute;
+  top: 4.8%;
+  left: 2.5%;
+  padding-bottom: 1.2vw;
+  width: 2.2vw;
 }
 
 .btn:hover .dropdown {
   position: absolute;
-  top: 2.5rem;
-  left: -1.2rem;
+  top: 2.9vw;
+  left: -1.5vw;
   display: block;
   opacity: 0.87;
   background: #FFFDFD;
@@ -27,8 +30,9 @@
 .dropdown a {
   position: relative;
   display: block;
-  padding: 1rem;
+  padding: 1vw;
   font-family: Arial;
+  font-size: 1.2vw;
   color: #000000;
   text-decoration: none;
 }

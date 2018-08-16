@@ -7,6 +7,8 @@ import { Button } from './Button';
 import { Skin } from './Skin';
 import { Title } from './Title';
 import { WeatherSymbol } from './WeatherSymbol';
+import day_img_cov from './img/Day-background-cover.png';
+import night_img_cov from './img/Night-background-cover.png';
 import day_img from './img/Day-background.png';
 import night_img from './img/Night-background.png';
 import registerServiceWorker from './registerServiceWorker';
@@ -19,7 +21,7 @@ class ShowWeather extends React.Component {
       main: "",
       temperature: "",
       wind: "",
-      skin: ""
+      skin: "",
   }
   this.loadWeather = this.loadWeather.bind(this);
   this.handleSkinChange = this.handleSkinChange.bind(this);
@@ -37,10 +39,10 @@ class ShowWeather extends React.Component {
     const time = new Date().getHours();
 
     if (time > 6 && time < 21) {
-      document.body.style.backgroundImage = "url(" + day_img + ")";
+      document.body.style.backgroundImage = "url(" + day_img_cov + ")";
     }
     else {
-      document.body.style.backgroundImage = "url(" + night_img + ")";
+      document.body.style.backgroundImage = "url(" + night_img_cov + ")";
     }
   }
 
@@ -96,9 +98,9 @@ class ShowWeather extends React.Component {
 
     else {
       return (
-        <div class="app">
+        <div className="app">
           <Skin value={this.state.skin} />
-          <Button className="btn" skin={this.handleSkinChange} />
+          <Button skin={this.handleSkinChange} />
           <WeatherSymbol className="smb" />
           <div className="container">
             <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
