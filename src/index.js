@@ -13,6 +13,8 @@ import day_img from './img/Day-background.png';
 import night_img from './img/Night-background.png';
 import registerServiceWorker from './registerServiceWorker';
 
+const time = new Date();
+
 class ShowWeather extends React.Component {
   constructor(props) {
     super(props);
@@ -22,11 +24,14 @@ class ShowWeather extends React.Component {
       temperature: "",
       wind: "",
       skin: "",
+      sunrise: "",
+      sunset: ""
+    }
+    this.day = time > this.state.sunrise && time < this.state.sunset;
+    this.loadWeather = this.loadWeather.bind(this);
+    this.handleSkinChange = this.handleSkinChange.bind(this);
+    this.handleSetSkin = this.handleSetSkin.bind(this);
   }
-  this.loadWeather = this.loadWeather.bind(this);
-  this.handleSkinChange = this.handleSkinChange.bind(this);
-  this.handleSetSkin = this.handleSetSkin.bind(this);
-}
 
   componentWillMount() {
     this.setState({
@@ -34,16 +39,10 @@ class ShowWeather extends React.Component {
       skin: JSON.parse(localStorage.getItem('skin'))
     });
 
-// Set 'day' or 'night' background basing on the hour
+// Set 'day' or 'night' background basing on the sunrise/sunset
 
-    const time = new Date().getHours();
+    document.body.style.backgroundImage = "url(" + (this.day? day_img_cov : night_img_cov) + ")";
 
-    if (time > 6 && time < 21) {
-      document.body.style.backgroundImage = "url(" + day_img_cov + ")";
-    }
-    else {
-      document.body.style.backgroundImage = "url(" + night_img_cov + ")";
-    }
   }
 
   componentDidMount() {
@@ -72,7 +71,9 @@ class ShowWeather extends React.Component {
                 this.setState({
                   main: result.weather[0].main,
                   temperature: result.main.temp,
-                  wind: result.wind.speed
+                  wind: result.wind.speed,
+                  sunrise: result.sys.sunrise,
+                  sunset: result.sys.sunset
                 });
             },
           );
@@ -98,7 +99,7 @@ class ShowWeather extends React.Component {
 
     else {
       return (
-        <div className="app">
+        <div className="app" style={{backgroundImage: "url(" + (this.day? day_img : night_img) + ")"}}>
           <Skin value={this.state.skin} />
           <Button skin={this.handleSkinChange} />
           <WeatherSymbol className="smb" />

@@ -11,3 +11,13 @@
   text-shadow: 0 2px 10px rgba(0,0,0,0.50);
   margin: 0;
 }
+
+.break {
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  border-bottom: 1px  solid #ACACAC;
+  box-shadow: 0 5px 1px 0 rgba(118,118,118,0.50);
+}

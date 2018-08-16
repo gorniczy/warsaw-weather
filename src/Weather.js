@@ -5,6 +5,7 @@ export const Weather = (props) => {
   return (
     <div>
       <p className="tempC">{props.temperature}˚C</p>
+      <div className="break" />
     </div>
   );
 }
