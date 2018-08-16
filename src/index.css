@@ -11,22 +11,31 @@ body {
   min-height: 100%;
   background-repeat: no-repeat;
   background-size: 110vw 110vh;
-  background-position: bottom;;
+  background-position: bottom;
 }
 
-.smb {
+.app {
   position: absolute;
-  top: 10rem;
-  right: 10rem;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
+  background-image: url('./img/Day-background.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .container {
   position: absolute;
   z-index: +1;
-  bottom: 1rem;
-  right: 1rem;
-  width: 37.5rem;
-  height: 30rem;
+  bottom: 1.5%;
+  right: 1.5%;
+  width: 41%;
+  height: 60%;
 }
 
 .nav_box_1, .nav_box_2, .nav_box_3 {
@@ -54,10 +63,10 @@ body {
 
 .box_1 {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 37.5rem;
-  height: 30rem;
+  bottom: 1.5%;
+  right: 1.5%;
+  width: 41%;
+  height: 60%;
   opacity: 0.32;
   background: #FFFDFD;
   box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);

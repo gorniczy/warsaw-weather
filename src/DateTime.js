@@ -35,14 +35,14 @@ componentWillUnmount() {
               month: month[date.getMonth()],
               date: date.getDate(),
               day: day[date.getDay()],
-              time: ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2)
+              time: ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2)
             });
   }
 
 
   render() {
     return (
-      <p className="date_time">{this.state.day}, {this.state.date}.{this.state.month}.{this.state.year}, {this.state.time}</p>
+      <p className="date_time">{this.state.day}    {this.state.date}.{this.state.month}.{this.state.year}    {this.state.time}</p>
     );
   }
 }

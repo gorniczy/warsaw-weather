@@ -96,7 +96,7 @@ class ShowWeather extends React.Component {
 
     else {
       return (
-        <div>
+        <div class="app">
           <Skin value={this.state.skin} />
           <Button className="btn" skin={this.handleSkinChange} />
           <WeatherSymbol className="smb" />
