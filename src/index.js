@@ -39,7 +39,7 @@ class ShowWeather extends React.Component {
       skin: JSON.parse(localStorage.getItem('skin'))
     });
 
-    document.body.style.backgroundImage = "url(" + (this.dayTime? day_img_cov : night_img_cov) + ")"; /* Set 'day' or 'night' background basing on the sunrise/sunset */
+    document.body.style.backgroundImage = "url(" + (this.dayTime()? day_img_cov : night_img_cov) + ")"; /* Set 'day' or 'night' background basing on the sunrise/sunset */
   }
 
   componentDidMount() {
@@ -81,7 +81,7 @@ class ShowWeather extends React.Component {
   dayTime() {
     const sunrise = new Date(this.state.sunrise*1000);
     const sunset = new Date(this.state.sunset*1000);
-    (time > sunrise && time < sunset)? true : false;
+    return (time > sunrise && time < sunset)? true : false;
   }
 
   handleSkinChange(skin) {
@@ -104,7 +104,7 @@ class ShowWeather extends React.Component {
 
     else {
       return (
-        <div className="app" style={{backgroundImage: "url(" + (this.dayTime? day_img : night_img) + ")"}}>
+        <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
           <Skin value={this.state.skin} />
           <Button skin={this.handleSkinChange} />
           <WeatherSymbol className="smb" />
