@@ -27,8 +27,8 @@ class ShowWeather extends React.Component {
       sunrise: "",
       sunset: ""
     }
-    this.day = time > this.state.sunrise && time < this.state.sunset;
     this.loadWeather = this.loadWeather.bind(this);
+    this.dayTime = this.dayTime.bind(this);
     this.handleSkinChange = this.handleSkinChange.bind(this);
     this.handleSetSkin = this.handleSetSkin.bind(this);
   }
@@ -39,10 +39,7 @@ class ShowWeather extends React.Component {
       skin: JSON.parse(localStorage.getItem('skin'))
     });
 
-// Set 'day' or 'night' background basing on the sunrise/sunset
-
-    document.body.style.backgroundImage = "url(" + (this.day? day_img_cov : night_img_cov) + ")";
-
+    document.body.style.backgroundImage = "url(" + (this.dayTime? day_img_cov : night_img_cov) + ")"; /* Set 'day' or 'night' background basing on the sunrise/sunset */
   }
 
   componentDidMount() {
@@ -51,12 +48,14 @@ class ShowWeather extends React.Component {
           () => this.loadWeather(),
           300000
         );
+        this.dayTime();
 
         }
 
   componentWillUpdate(nextProps, nextState) {
           localStorage.setItem('title', JSON.stringify(nextState.title));
           localStorage.setItem('skin', JSON.stringify(nextState.skin));
+
         }
 
   componentWillUnmount() {
@@ -79,6 +78,12 @@ class ShowWeather extends React.Component {
           );
   }
 
+  dayTime() {
+    const sunrise = new Date(this.state.sunrise*1000);
+    const sunset = new Date(this.state.sunset*1000);
+    (time > sunrise && time < sunset)? true : false;
+  }
+
   handleSkinChange(skin) {
     this.setState({
       skin: skin
@@ -99,7 +104,7 @@ class ShowWeather extends React.Component {
 
     else {
       return (
-        <div className="app" style={{backgroundImage: "url(" + (this.day? day_img : night_img) + ")"}}>
+        <div className="app" style={{backgroundImage: "url(" + (this.dayTime? day_img : night_img) + ")"}}>
           <Skin value={this.state.skin} />
           <Button skin={this.handleSkinChange} />
           <WeatherSymbol className="smb" />
