@@ -20,6 +20,7 @@
   color: #E4E9F4;
   text-decoration: none;
   position: absolute;
+  cursor: pointer;
 }
 
 .districts:hover {
