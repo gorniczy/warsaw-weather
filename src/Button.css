@@ -25,6 +25,7 @@
   opacity: 0.87;
   background: #FFFDFD;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .dropdown a {
