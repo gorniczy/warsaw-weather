@@ -7,13 +7,12 @@ import { Button } from './Button';
 import { Skin } from './Skin';
 import { Title } from './Title';
 import { WeatherSymbol } from './WeatherSymbol';
+import title_img from './img/Title-background.png';
 import day_img_cov from './img/Day-background-cover.png';
 import night_img_cov from './img/Night-background-cover.png';
 import day_img from './img/Day-background.png';
 import night_img from './img/Night-background.png';
 import registerServiceWorker from './registerServiceWorker';
-
-const time = new Date();
 
 class ShowWeather extends React.Component {
   constructor(props) {
@@ -33,23 +32,20 @@ class ShowWeather extends React.Component {
     this.handleSetSkin = this.handleSetSkin.bind(this);
   }
 
-  componentWillMount() {
-    this.setState({
-      title: JSON.parse(localStorage.getItem('title')),
-      skin: JSON.parse(localStorage.getItem('skin'))
-    });
-
-    document.body.style.backgroundImage = "url(" + (this.dayTime()? day_img_cov : night_img_cov) + ")"; /* Set 'day' or 'night' background basing on the sunrise/sunset */
-  }
-
   componentDidMount() {
         this.loadWeather();
         this.update = setInterval(
           () => this.loadWeather(),
           300000
         );
-        this.dayTime();
 
+        this.setState({
+          title: JSON.parse(localStorage.getItem('title')),
+          skin: JSON.parse(localStorage.getItem('skin'))
+        });
+
+
+       document.body.style.backgroundImage = "url(" + (/*this.state.title? title_img:*/!this.dayTime()? day_img_cov : night_img_cov) + ")"; /* Set 'day' or 'night' background basing on the sunrise/sunset */
         }
 
   componentWillUpdate(nextProps, nextState) {
@@ -79,21 +75,22 @@ class ShowWeather extends React.Component {
   }
 
   dayTime() {
+    const time = new Date();
     const sunrise = new Date(this.state.sunrise*1000);
     const sunset = new Date(this.state.sunset*1000);
-    return (time > sunrise && time < sunset)? true : false;
+    return time > sunrise && time < sunset;
   }
 
   handleSkinChange(skin) {
     this.setState({
-      skin: skin
+      skin: skin.toUpperCase()
     });
   }
 
   handleSetSkin(skin) {
     this.setState({
       title: false,
-      skin: skin
+      skin: skin.toUpperCase()
     });
   }
 
@@ -112,9 +109,9 @@ class ShowWeather extends React.Component {
             <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
             <DateTime />
           </div>
-          {this.state.skin === "Ochota" && <div className="nav_box_1"></div>}
-          {this.state.skin === "Wola" && <div className="nav_box_2"></div>}
-          {this.state.skin === "Mokotów" && <div className="nav_box_3"></div>}
+          {this.state.skin === "OCHOTA" && <div className="nav_box_1"></div>}
+          {this.state.skin === "WOLA" && <div className="nav_box_2"></div>}
+          {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"></div>}
           <div className="box_1"></div>
         </div>
     )
