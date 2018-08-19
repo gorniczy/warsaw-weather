@@ -17,11 +17,11 @@ export class Button extends React.Component {
   render() {
     return (
       <div className="btn">
-        <img src={btn_img} className="btn_img" alt="button image" />
+        <img src={btn_img} className="btn_img" alt="button" />
         <div className="dropdown">
-          <a href="#" onClick={this.changeSkin} text="Ochota">Ochota</a>
-          <a href="#" onClick={this.changeSkin} text="Wola">Wola</a>
-          <a href="#" onClick={this.changeSkin} text="Mokotów">Mokotów</a>
+          <a onClick={this.changeSkin} text="Ochota">Ochota</a>
+          <a onClick={this.changeSkin} text="Wola">Wola</a>
+          <a onClick={this.changeSkin} text="Mokotów">Mokotów</a>
         </div>
       </div>
     );
