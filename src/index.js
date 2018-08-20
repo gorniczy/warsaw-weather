@@ -23,8 +23,8 @@ class ShowWeather extends React.Component {
       temperature: "",
       wind: "",
       skin: "",
-      sunrise: "",
-      sunset: ""
+      sunrise: null,
+      sunset: null
     }
     this.loadWeather = this.loadWeather.bind(this);
     this.dayTime = this.dayTime.bind(this);
@@ -36,7 +36,7 @@ class ShowWeather extends React.Component {
         this.loadWeather();
         this.update = setInterval(
           () => this.loadWeather(),
-          300000
+          60000
         );
 
         this.setState({
@@ -44,11 +44,9 @@ class ShowWeather extends React.Component {
           skin: JSON.parse(localStorage.getItem('skin'))
         });
 
-
-       document.body.style.backgroundImage = "url(" + (/*this.state.title? title_img:*/!this.dayTime()? day_img_cov : night_img_cov) + ")"; /* Set 'day' or 'night' background basing on the sunrise/sunset */
         }
 
-  componentWillUpdate(nextProps, nextState) {
+componentWillUpdate(nextProps, nextState) {
           localStorage.setItem('title', JSON.stringify(nextState.title));
           localStorage.setItem('skin', JSON.stringify(nextState.skin));
 
@@ -59,7 +57,7 @@ class ShowWeather extends React.Component {
   }
 
   loadWeather() {
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=b5daf7d7450518f7ba259ab775096921&units=metric")
+    fetch("http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=7ed8227c3cabe727f6beaca92aa3365c&units=metric")
       .then(res => res.json())
       .then(
         (result) => {
@@ -67,18 +65,15 @@ class ShowWeather extends React.Component {
                   main: result.weather[0].main,
                   temperature: result.main.temp,
                   wind: result.wind.speed,
-                  sunrise: result.sys.sunrise,
-                  sunset: result.sys.sunset
+                  sunrise: new Date(result.sys.sunrise*1000),
+                  sunset: new Date(result.sys.sunset*1000)
                 });
             },
           );
   }
 
   dayTime() {
-    const time = new Date();
-    const sunrise = new Date(this.state.sunrise*1000);
-    const sunset = new Date(this.state.sunset*1000);
-    return time > sunrise && time < sunset;
+    return new Date() > this.state.sunrise && new Date() < this.state.sunset;
   }
 
   handleSkinChange(skin) {
@@ -96,25 +91,33 @@ class ShowWeather extends React.Component {
 
   render() {
     if (this.state.title) {
-      return <Title title={this.handleSetSkin} />
+      return (
+        <div className="background" style={{backgroundImage: "url(" + title_img + ")"}}>
+          <Title title={this.handleSetSkin} />
+        </div>
+      );
     }
 
     else {
       return (
-        <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
-          <Skin value={this.state.skin} />
-          <Button skin={this.handleSkinChange} />
-          <WeatherSymbol className="smb" />
-          <div className="container">
-            <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
-            <DateTime />
+        <div className="background" style={{backgroundImage: "url(" + (this.dayTime()? day_img_cov : night_img_cov) + ")"}}>
+          <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
+            <Skin value={this.state.skin} />
+            <Button skin={this.handleSkinChange} />
+            <WeatherSymbol className="smb" />
+            <div className="container">
+              <p>{this.state.day}</p>
+              <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
+              <DateTime />
+            </div>
+            {this.state.skin === "OCHOTA" && <div className="nav_box_1"></div>}
+            {this.state.skin === "WOLA" && <div className="nav_box_2"></div>}
+            {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"></div>}
+            <div className="box_1"></div>
+            <div className="box_2"></div>
           </div>
-          {this.state.skin === "OCHOTA" && <div className="nav_box_1"></div>}
-          {this.state.skin === "WOLA" && <div className="nav_box_2"></div>}
-          {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"></div>}
-          <div className="box_1"></div>
         </div>
-    )
+    );
   }
 }
 
