@@ -24,9 +24,15 @@ class ShowWeather extends React.Component {
       wind: "",
       skin: "",
       sunrise: null,
-      sunset: null
+      sunset: null,
+      forecastOne: [],
+      forecastTwo: [],
+      forecastThree: [],
+      forecastFour: [],
+      forecastFive: []
     }
     this.loadWeather = this.loadWeather.bind(this);
+    this.loadForecast = this.loadForecast.bind(this);
     this.dayTime = this.dayTime.bind(this);
     this.handleSkinChange = this.handleSkinChange.bind(this);
     this.handleSetSkin = this.handleSetSkin.bind(this);
@@ -34,6 +40,7 @@ class ShowWeather extends React.Component {
 
   componentDidMount() {
         this.loadWeather();
+        this.loadForecast();
         this.update = setInterval(
           () => this.loadWeather(),
           60000
@@ -70,6 +77,22 @@ componentWillUpdate(nextProps, nextState) {
                 });
             },
           );
+  }
+
+  loadForecast() {
+    fetch("https://api.darksky.net/forecast/3949e0206294c0a10a16100fff5a0467/52.229676,21.012229?units=si")
+            .then(res => res.json())
+            .then(
+              (result) => {
+                      this.setState({
+                        forecastOne: [result.daily.data[0].time, result.daily.data[0].temperatureHigh],
+                        forecastTwo: [result.daily.data[1].time, result.daily.data[1].temperatureHigh],
+                        forecastThree: [result.daily.data[2].time, result.daily.data[2].temperatureHigh],
+                        forecastFour: [result.daily.data[3].time, result.daily.data[3].temperatureHigh],
+                        forecastFive: [result.daily.data[4].time, result.daily.data[4].temperatureHigh]
+                      });
+                  },
+                );
   }
 
   dayTime() {
