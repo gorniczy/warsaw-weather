@@ -25,11 +25,11 @@ class ShowWeather extends React.Component {
       skin: "",
       sunrise: null,
       sunset: null,
-      forecastOne: [],
-      forecastTwo: [],
-      forecastThree: [],
-      forecastFour: [],
-      forecastFive: []
+      forecastOne: "",
+      forecastTwo: "",
+      forecastThree: "",
+      forecastFour: "",
+      forecastFive: ""
     }
     this.loadWeather = this.loadWeather.bind(this);
     this.loadForecast = this.loadForecast.bind(this);
@@ -80,16 +80,16 @@ componentWillUpdate(nextProps, nextState) {
   }
 
   loadForecast() {
-    fetch("https://api.darksky.net/forecast/3949e0206294c0a10a16100fff5a0467/52.229676,21.012229?units=si")
+    fetch("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22warsaw%2C%20pl%22)%20and%20u%3D%27c%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
             .then(res => res.json())
             .then(
               (result) => {
                       this.setState({
-                        forecastOne: [result.daily.data[0].time, result.daily.data[0].temperatureHigh],
-                        forecastTwo: [result.daily.data[1].time, result.daily.data[1].temperatureHigh],
-                        forecastThree: [result.daily.data[2].time, result.daily.data[2].temperatureHigh],
-                        forecastFour: [result.daily.data[3].time, result.daily.data[3].temperatureHigh],
-                        forecastFive: [result.daily.data[4].time, result.daily.data[4].temperatureHigh]
+                        forecastOne:  result.query.results.channel.item.forecast[0].high,
+                        forecastTwo: result.query.results.channel.item.forecast[1].high,
+                        forecastThree: result.query.results.channel.item.forecast[2].high,
+                        forecastFour: result.query.results.channel.item.forecast[3].high,
+                        forecastFive: result.query.results.channel.item.forecast[4].high
                       });
                   },
                 );
@@ -113,6 +113,7 @@ componentWillUpdate(nextProps, nextState) {
   }
 
   render() {
+    console.log(this.state.forecastOne, this.state.forecastTwo, this.state.forecastThree, this.state.forecastFour, this.state.forecastFive);
     if (this.state.title) {
       return (
         <div className="background" style={{backgroundImage: "url(" + title_img + ")"}}>
@@ -129,7 +130,6 @@ componentWillUpdate(nextProps, nextState) {
             <Button skin={this.handleSkinChange} />
             <WeatherSymbol className="smb" />
             <div className="container">
-              <p>{this.state.day}</p>
               <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
               <DateTime />
             </div>
