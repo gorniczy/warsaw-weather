@@ -6,6 +6,7 @@ import { Weather } from './Weather';
 import { Button } from './Button';
 import { Skin } from './Skin';
 import { Title } from './Title';
+import { Forecast } from './Forecast';
 import { WeatherSymbol } from './WeatherSymbol';
 import title_img from './img/Title-background.png';
 import day_img_cov from './img/Day-background-cover.png';
@@ -85,11 +86,11 @@ componentWillUpdate(nextProps, nextState) {
             .then(
               (result) => {
                       this.setState({
-                        forecastOne:  result.query.results.channel.item.forecast[0].high,
-                        forecastTwo: result.query.results.channel.item.forecast[1].high,
-                        forecastThree: result.query.results.channel.item.forecast[2].high,
-                        forecastFour: result.query.results.channel.item.forecast[3].high,
-                        forecastFive: result.query.results.channel.item.forecast[4].high
+                        forecastOne:  result.query.results.channel.item.forecast[1].high,
+                        forecastTwo: result.query.results.channel.item.forecast[2].high,
+                        forecastThree: result.query.results.channel.item.forecast[3].high,
+                        forecastFour: result.query.results.channel.item.forecast[4].high,
+                        forecastFive: result.query.results.channel.item.forecast[5].high
                       });
                   },
                 );
@@ -113,7 +114,6 @@ componentWillUpdate(nextProps, nextState) {
   }
 
   render() {
-    console.log(this.state.forecastOne, this.state.forecastTwo, this.state.forecastThree, this.state.forecastFour, this.state.forecastFive);
     if (this.state.title) {
       return (
         <div className="background" style={{backgroundImage: "url(" + title_img + ")"}}>
@@ -133,6 +133,7 @@ componentWillUpdate(nextProps, nextState) {
               <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
               <DateTime />
             </div>
+            <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} />
             {this.state.skin === "OCHOTA" && <div className="nav_box_1"></div>}
             {this.state.skin === "WOLA" && <div className="nav_box_2"></div>}
             {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"></div>}
