@@ -20,9 +20,8 @@ class ShowWeather extends React.Component {
     super(props);
     this.state = {
       title: true,
-      main: "",
+      description: "",
       temperature: "",
-      wind: "",
       skin: "",
       sunrise: null,
       sunset: null,
@@ -42,8 +41,13 @@ class ShowWeather extends React.Component {
   componentDidMount() {
         this.loadWeather();
         this.loadForecast();
-        this.update = setInterval(
+        this.updateWeather = setInterval(
           () => this.loadWeather(),
+          60000
+        );
+
+        this.updateWeather = setInterval(
+          () => this.loadForecast(),
           60000
         );
 
@@ -61,7 +65,8 @@ componentWillUpdate(nextProps, nextState) {
         }
 
   componentWillUnmount() {
-    clearInterval(this.update);
+    clearInterval(this.updateWeather);
+    clearInterval(this.updateForecast);
   }
 
   loadWeather() {
@@ -70,9 +75,8 @@ componentWillUpdate(nextProps, nextState) {
       .then(
         (result) => {
                 this.setState({
-                  main: result.weather[0].main,
+                  description: result.weather[0].description,
                   temperature: result.main.temp,
-                  wind: result.wind.speed,
                   sunrise: new Date(result.sys.sunrise*1000),
                   sunset: new Date(result.sys.sunset*1000)
                 });
@@ -128,9 +132,9 @@ componentWillUpdate(nextProps, nextState) {
           <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
             <Skin value={this.state.skin} />
             <Button skin={this.handleSkinChange} />
-            <WeatherSymbol className="smb" />
+            <WeatherSymbol description={this.state.description} />
             <div className="container">
-              <Weather main={this.state.main} temperature={this.state.temperature} wind={this.state.wind} />
+              <Weather temperature={this.state.temperature} />
               <DateTime />
             </div>
             <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} />

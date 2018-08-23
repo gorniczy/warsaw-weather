@@ -23,7 +23,7 @@ export class Forecast extends React.Component {
         <div><p>{this.props.forecastThree}˚</p></div>
         <div><p>{this.props.forecastFour}˚</p></div>
         <div><p>{this.props.forecastFive}˚</p></div>
-        <fr className="break_2" />
+        <span className="break_2" />
       </div>
     );
   }

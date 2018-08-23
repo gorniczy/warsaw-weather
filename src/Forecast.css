@@ -13,7 +13,7 @@
 
 .wrapper div {
 position: relative;
-vertical-align: middle;
+
 opacity: 0.68;
 font-family: AvenirNextCondensed-Regular;
 font-size: 2.5vw;
@@ -36,7 +36,8 @@ text-shadow: 0 2px 4px rgba(0,0,0,0.50);
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  border-bottom: 1px solid #959595;
+  border-bottom: 1px solid #ACACAC;
   box-shadow: 0 1px 1px 0 rgba(118,118,118,0.50);
-  z-index: 1000000;
+  margin: 0;
+  z-index: 10;
 }
