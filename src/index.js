@@ -75,7 +75,7 @@ componentWillUpdate(nextProps, nextState) {
       .then(
         (result) => {
                 this.setState({
-                  description: result.weather[0].description,
+                description: result.weather[0].description,
                   temperature: result.main.temp,
                   sunrise: new Date(result.sys.sunrise*1000),
                   sunset: new Date(result.sys.sunset*1000)
@@ -132,7 +132,7 @@ componentWillUpdate(nextProps, nextState) {
           <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
             <Skin value={this.state.skin} />
             <Button skin={this.handleSkinChange} />
-            <WeatherSymbol description={this.state.description} />
+            <WeatherSymbol description={this.state.description} dayTime={this.dayTime()} />
             <div className="container">
               <Weather temperature={this.state.temperature} />
               <DateTime />
