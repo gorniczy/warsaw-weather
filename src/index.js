@@ -7,7 +7,7 @@ import { Button } from './Button';
 import { Skin } from './Skin';
 import { Title } from './Title';
 import { Forecast } from './Forecast';
-import { WeatherSymbol } from './WeatherSymbol';
+import { WeatherGraphics } from './WeatherGraphics';
 import title_img from './img/Title-background.png';
 import day_img_cov from './img/Day-background-cover.png';
 import night_img_cov from './img/Night-background-cover.png';
@@ -20,7 +20,7 @@ class ShowWeather extends React.Component {
     super(props);
     this.state = {
       title: true,
-      description: "",
+      icon: "",
       temperature: "",
       skin: "",
       sunrise: null,
@@ -75,7 +75,7 @@ componentWillUpdate(nextProps, nextState) {
       .then(
         (result) => {
                 this.setState({
-                description: result.weather[0].description,
+                  icon: result.weather[0].icon.slice(0, 2),
                   temperature: result.main.temp,
                   sunrise: new Date(result.sys.sunrise*1000),
                   sunset: new Date(result.sys.sunset*1000)
@@ -132,7 +132,7 @@ componentWillUpdate(nextProps, nextState) {
           <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
             <Skin value={this.state.skin} />
             <Button skin={this.handleSkinChange} />
-            <WeatherSymbol description={this.state.description} dayTime={this.dayTime()} />
+            <WeatherGraphics graphics={this.state.icon} dayTime={this.dayTime()} />
             <div className="container">
               <Weather temperature={this.state.temperature} />
               <DateTime />

@@ -1,32 +1,32 @@
-.symbol_1 {
+.graphics_1 {
   position: absolute;
   top: 5%;
   right: 3%;
   width: 15.3%;
 }
 
-.symbol_2 {
+.graphics_2 {
   position: absolute;
   top: 5%;
   right: 3%;
   width: 24%;
 }
 
-.symbol_3 {
+.graphics_3 {
   position: absolute;
   top: 5%;
   right: 3%;
   width: 26.3%;
 }
 
-.symbol_4 {
+.graphics_4 {
   position: absolute;
   top: 5%;
   right: 3%;
   width: 27.3%;
 }
 
-.symbol_5 {
+.graphics_5 {
   position: absolute;
   top: 2.5%;
   right: 6%;
@@ -34,7 +34,7 @@
   z-index: 10;
 }
 
-.symbol_6 {
+.graphics_6 {
   position: absolute;
   top: 2%;
   right: 7%;
@@ -42,7 +42,7 @@
   z-index: 10;
 }
 
-.symbol_7 {
+.graphics_7 {
   position: absolute;
   top: 2%;
   right: 7%;
@@ -50,7 +50,7 @@
   z-index: 10;
 }
 
-.symbol_8 {
+.graphics_8 {
   position: absolute;
   top: 2%;
   right: 7%;
@@ -58,7 +58,7 @@
   z-index: 10;
 }
 
-.symbol_9 {
+.graphics_9 {
   position: absolute;
   top: 5%;
   right: 4%;
