@@ -10,3 +10,9 @@
   text-shadow: 0 2px 10px rgba(0,0,0,0.50);
   margin: 0 -30% 0 0;
 }
+
+@media only screen and (orientation: portrait) {
+  .date_time {
+    display: none;
+  }
+}

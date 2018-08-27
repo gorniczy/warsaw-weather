@@ -12,13 +12,12 @@
 }
 
 .wrapper div {
-position: relative;
-
-opacity: 0.68;
-font-family: AvenirNextCondensed-Regular;
-font-size: 2.5vw;
-color: #000000;
-text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+  position: relative;
+  opacity: 0.68;
+  font-family: AvenirNextCondensed-Regular;
+  font-size: 2.5vw;
+  color: #000000;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.50);
 }
 
 .wrapper p {
@@ -40,4 +39,29 @@ text-shadow: 0 2px 4px rgba(0,0,0,0.50);
   box-shadow: 0 1px 1px 0 rgba(118,118,118,0.50);
   margin: 0;
   z-index: 10;
+}
+
+@media only screen and (orientation: portrait) {
+  .wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 12%;
+    z-index: 10;
+  }
+
+  .wrapper div {
+    position: relative;
+    opacity: 0.68;
+    font-family: AvenirNextCondensed-Regular;
+    font-size: 3vh;
+    color: #000000;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+  }
 }

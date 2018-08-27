@@ -65,3 +65,15 @@
   width: 27%;
   z-index: 10;
 }
+
+@media only screen and (orientation: portrait) {
+  .graphics_1 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 30%;
+    z-index: 10000;
+  }
+}

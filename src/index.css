@@ -90,3 +90,63 @@ body {
   box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
   border-radius: 1.5vw;
 }
+
+@media only screen and (orientation: portrait) {
+
+  .app {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 56.25vh;
+    height: 100%;
+    padding-top: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .container {
+    position: absolute;
+    z-index: +1;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    right: 1.5%;
+    width: 41%;
+    height: 30%;
+  }
+
+  .box_1 {
+    position: absolute;
+    bottom: auto;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 41%;
+    height: 30%;
+    opacity: 0.72;
+    background: #FFFDFD;
+    box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
+    border-radius: 1.5vw;
+  }
+
+  .box_2 {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 12%;
+    opacity: 0.65;
+    background: #FFFDFD;
+    box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
+    border-radius: 1.5vw;
+  }
+
+  .nav_box_1, .nav_box_2, .nav_box_3 {
+    display: none;
+  }
+
+}

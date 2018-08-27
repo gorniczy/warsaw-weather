@@ -53,3 +53,22 @@
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+
+@media only screen and (orientation: portrait) {
+  .btn {
+    position: absolute;
+    top: 2.5%;
+    left: auto;
+    right: 2.5%;
+    display: inline-block;
+  }
+
+  .btn_img {
+    position: absolute;
+    top: 2.5%;
+    left: auto;
+    right: 2.5%;
+    padding-bottom: 1.2vw;
+    width: 4vh;
+  }
+}
