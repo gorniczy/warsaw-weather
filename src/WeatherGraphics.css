@@ -69,11 +69,91 @@
 @media only screen and (orientation: portrait) {
   .graphics_1 {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     right: auto;
     width: 30%;
+    z-index: 10000;
+  }
+
+  .graphics_2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_3 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_4 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_5 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_6 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_7 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_8 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
+    z-index: 10000;
+  }
+
+  .graphics_9 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 45%;
     z-index: 10000;
   }
 }

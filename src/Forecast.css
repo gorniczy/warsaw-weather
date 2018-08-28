@@ -64,4 +64,16 @@
     color: #000000;
     text-shadow: 0 2px 4px rgba(0,0,0,0.50);
   }
+
+  .break_2 {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border-bottom: 1px solid #575757;
+    box-shadow: 0 1px 1px 0 rgba(118,118,118,0.50);
+    margin: 0;
+    z-index: 10;
+  }
 }

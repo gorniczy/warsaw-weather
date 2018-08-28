@@ -6,13 +6,11 @@
   position: absolute;
   top: 4.8%;
   left: 2.5%;
+  width: 2.2vw;
   display: inline-block;
 }
 
 .btn_img {
-  position: absolute;
-  top: 4.8%;
-  left: 2.5%;
   padding-bottom: 1.2vw;
   width: 2.2vw;
 }
@@ -57,18 +55,62 @@
 @media only screen and (orientation: portrait) {
   .btn {
     position: absolute;
-    top: 2.5%;
+    top: 3%;
     left: auto;
-    right: 2.5%;
+    right: 4%;
+    width: 4.5vh;
     display: inline-block;
   }
 
   .btn_img {
     position: absolute;
-    top: 2.5%;
+    padding-bottom: 0;
+    width: 4.5vh;
+  }
+
+  .btn:hover .dropdown {
+    position: absolute;
+    top: -0.5vh;
     left: auto;
-    right: 2.5%;
-    padding-bottom: 1.2vw;
-    width: 4vh;
+    right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    opacity: 1;
+    background: #FFFDFD;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 100000;
+  }
+
+  .dropdown a {
+    position: relative;
+    display: inline;
+    padding: 1vh;
+    font-family: Arial;
+    font-size: 2.5vh;
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+  .dropdown a:nth-of-type(1):hover {
+    background: #DDDDDD;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .dropdown a:nth-of-type(2):hover {
+    background: #DDDDDD;
+  }
+
+  .dropdown a:nth-of-type(3):hover {
+    background: #DDDDDD;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 0;
   }
 }

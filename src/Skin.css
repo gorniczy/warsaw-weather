@@ -34,14 +34,13 @@
 
   .title {
     position: absolute;
-    top: 2.5%;
-    left: 2.5%;
+    top: 1.5%;
+    left: 4%;
     font-family: AvenirNextCondensed-Regular;
-    font-size: 5vh;
+    font-size: 5.5vh;
     margin: 0;
-    opacity: 0.68;
-    color: #000000;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+    color: #4F4F4F;
+    text-shadow: 0 0px 5px rgba(0,0,0,0.20);
   }
 
 }

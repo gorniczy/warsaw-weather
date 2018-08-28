@@ -27,9 +27,10 @@
   .tempC {
     position: absolute;
     top: auto;
-    bottom: 0;
+    bottom: -10%;
     left: 50%;
     transform: translateX(-50%);
+    padding: 0;
     opacity: 0.68;
     font-family: AvenirNextCondensed-UltraLight;
     font-size: 14vh;

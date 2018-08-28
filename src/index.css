@@ -109,24 +109,24 @@ body {
   .container {
     position: absolute;
     z-index: +1;
-    top: 12%;
+    top: 18%;
     left: 50%;
     transform: translateX(-50%);
     bottom: auto;
     right: 1.5%;
-    width: 41%;
-    height: 30%;
+    width: 50%;
+    height: 25%;
   }
 
   .box_1 {
     position: absolute;
     bottom: auto;
-    top: 12%;
+    top: 18%;
     left: 50%;
     transform: translateX(-50%);
-    width: 41%;
-    height: 30%;
-    opacity: 0.72;
+    width: 50%;
+    height: 25%;
+    opacity: 0.8;
     background: #FFFDFD;
     box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
     border-radius: 1.5vw;
