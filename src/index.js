@@ -70,7 +70,7 @@ componentWillUpdate(nextProps, nextState) {
   }
 
   loadWeather() {
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=7ed8227c3cabe727f6beaca92aa3365c&units=metric")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=7ed8227c3cabe727f6beaca92aa3365c&units=metric")
       .then(res => res.json())
       .then(
         (result) => {
