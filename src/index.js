@@ -54,7 +54,8 @@ class ShowWeather extends React.Component {
         this.setState({
           title: JSON.parse(localStorage.getItem('title')),
           skin: JSON.parse(localStorage.getItem('skin'))
-        });
+          });
+
 
         }
 
@@ -63,6 +64,10 @@ componentWillUpdate(nextProps, nextState) {
           localStorage.setItem('skin', JSON.stringify(nextState.skin));
 
         }
+
+componentDidUpdate() {
+
+}
 
   componentWillUnmount() {
     clearInterval(this.updateWeather);

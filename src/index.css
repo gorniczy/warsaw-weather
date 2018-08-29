@@ -2,6 +2,16 @@
   outline: 1px solid red;
 }*/
 
+@font-face {
+  font-family: AvenirNextCondensed-Regular;
+  src: url('./fonts/AvenirNextCondensed-Regular.ttf');
+}
+
+@font-face {
+  font-family: AvenirNextCondensed-UltraLight;
+  src: url('./fonts/AvenirNextCondensed-UltraLight.ttf');
+}
+
 html {
   min-height: 100%;
   overflow: hidden;
@@ -104,6 +114,8 @@ body {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: bottom;
+    box-shadow: 1px 1px 16px 0 rgba(123,123,123,0.50),
+                -1px -1px 16px 0 rgba(123,123,123,0.50);
   }
 
   .container {
