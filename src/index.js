@@ -19,7 +19,7 @@ class ShowWeather extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: true,
+      hideTitle: null,
       icon: "",
       temperature: "",
       skin: "",
@@ -51,23 +51,17 @@ class ShowWeather extends React.Component {
           60000
         );
 
+
         this.setState({
-          title: JSON.parse(localStorage.getItem('title')),
+          hideTitle: JSON.parse(localStorage.getItem('hideTitle')),
           skin: JSON.parse(localStorage.getItem('skin'))
-          });
-
-
-        }
-
-componentWillUpdate(nextProps, nextState) {
-          localStorage.setItem('title', JSON.stringify(nextState.title));
-          localStorage.setItem('skin', JSON.stringify(nextState.skin));
-
+              });
         }
 
 componentDidUpdate() {
-
-}
+      localStorage.setItem('hideTitle', JSON.stringify(this.state.hideTitle));
+      localStorage.setItem('skin', JSON.stringify(this.state.skin));
+        }
 
   componentWillUnmount() {
     clearInterval(this.updateWeather);
@@ -117,13 +111,13 @@ componentDidUpdate() {
 
   handleSetSkin(skin) {
     this.setState({
-      title: false,
+      hideTitle: true,
       skin: skin.toUpperCase()
     });
   }
 
   render() {
-    if (this.state.title) {
+    if (this.state.hideTitle === null) {
       return (
         <div className="background" style={{backgroundImage: "url(" + title_img + ")"}}>
           <Title title={this.handleSetSkin} />
