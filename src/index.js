@@ -51,7 +51,6 @@ class ShowWeather extends React.Component {
           60000
         );
 
-
         this.setState({
           hideTitle: JSON.parse(localStorage.getItem('hideTitle')),
           skin: JSON.parse(localStorage.getItem('skin'))
