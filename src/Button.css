@@ -115,7 +115,7 @@
   }
 }
 
-@media (pointer: coarse) {
+@media (hover: none) {
   .btn:active .dropdown {
     position: absolute;
     top: 2.9vw;
@@ -145,7 +145,7 @@
 
 }
 
-@media only screen and (orientation: portrait) and (pointer: coarse) {
+@media only screen and (orientation: portrait) and (hover: none) {
   .btn:active .dropdown {
     position: absolute;
     top: -0.5vh;
@@ -161,7 +161,7 @@
   }
 
   .dropdown a:nth-of-type(1):active {
-    background: #DDDDDD;
+/*    background: #DDDDDD;*/
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-top-right-radius: 6px;
