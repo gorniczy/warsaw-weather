@@ -39,8 +39,8 @@ body {
   transform: translateX(-50%) translateY(-50%);
   width: 100vw;
   height: 56.25vw;
-  max-height: 100%;
-  max-width: 177.5vh;
+/*  max-height: 100%;
+  max-width: 177.5vh; */
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: bottom;
