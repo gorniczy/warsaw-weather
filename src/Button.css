@@ -1,6 +1,6 @@
-.dropdown {
+/*.dropdown {
   display: none;
-}
+}*/
 
 .btn {
   position: absolute;
@@ -15,6 +15,17 @@
   width: 2.2vw;
 }
 
+.dropdown {
+  position: absolute;
+  top: 2.9vw;
+  left: -1.5vw;
+  display: block;
+  opacity: 0.87;
+  background: #FFFDFD;
+  border-radius: 12px;
+  cursor: pointer;
+}
+/*
 .btn:hover .dropdown {
   position: absolute;
   top: 2.9vw;
@@ -25,6 +36,7 @@
   border-radius: 12px;
   cursor: pointer;
 }
+*/
 
 .dropdown a {
   position: relative;

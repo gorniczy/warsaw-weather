@@ -5,8 +5,11 @@ import './Button.css';
 export class Button extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      display: "none"
+    }
     this.changeSkin = this.changeSkin.bind(this);
+    this.display = this.display.bind(this);
   }
 
   changeSkin(e) {
@@ -14,11 +17,17 @@ export class Button extends React.Component {
     this.props.skin(skinName);
   }
 
+  display() {
+    this.setState({
+    display: this.state.display === "block"? "none" : "block"
+  });
+  }
+
   render() {
     return (
-      <div className="btn">
-        <img src={btn_img} className="btn_img" alt="button" />
-        <div className="dropdown">
+      <div className="btn" onCLick={this.display}>
+        <img src={btn_img} className="btn_img" onCLick={this.display} alt="button" />
+        <div className="dropdown" onClick={this.display} style={{display: this.state.display}}>
           <a onClick={this.changeSkin} text="Ochota">Ochota</a>
           <a onClick={this.changeSkin} text="Wola">Wola</a>
           <a onClick={this.changeSkin} text="Mokotów">Mokotów</a>
