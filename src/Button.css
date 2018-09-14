@@ -1,7 +1,3 @@
-/*.dropdown {
-  display: none;
-}*/
-
 .btn {
   position: absolute;
   top: 4.8%;
@@ -19,24 +15,12 @@
   position: absolute;
   top: 2.9vw;
   left: -1.5vw;
-  display: block;
   opacity: 0.87;
+  flex-direction: column;
   background: #FFFDFD;
   border-radius: 12px;
   cursor: pointer;
 }
-/*
-.btn:hover .dropdown {
-  position: absolute;
-  top: 2.9vw;
-  left: -1.5vw;
-  display: block;
-  opacity: 0.87;
-  background: #FFFDFD;
-  border-radius: 12px;
-  cursor: pointer;
-}
-*/
 
 .dropdown a {
   position: relative;
@@ -80,14 +64,13 @@
     width: 4.5vh;
   }
 
-  .btn:hover .dropdown {
+  .dropdown {
     position: absolute;
     top: -0.5vh;
     left: auto;
     right: 0;
-    display: flex;
-    flex-direction: row-reverse;
     opacity: 1;
+    flex-direction: row-reverse;
     background: #FFFDFD;
     border-radius: 6px;
     cursor: pointer;
@@ -108,7 +91,7 @@
   .dropdown a:nth-of-type(1):hover {
     background: #DDDDDD;
     border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
   }
