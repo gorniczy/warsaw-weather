@@ -116,6 +116,7 @@ componentDidUpdate() {
   }
 
   render() {
+
     if (this.state.hideTitle === null) {
       return (
         <div className="background" style={{backgroundImage: "url(" + title_img + ")"}}>
