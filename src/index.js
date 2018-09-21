@@ -29,13 +29,22 @@ class ShowWeather extends React.Component {
       forecastTwo: "",
       forecastThree: "",
       forecastFour: "",
-      forecastFive: ""
+      forecastFive: "",
+      fontSize1: "",
+      fontSize2: "",
+      fontSize3: "",
+      fontSize4: "",
+      fontSize5: ""
     }
+
+    this.ref = React.createRef();
+
     this.loadWeather = this.loadWeather.bind(this);
     this.loadForecast = this.loadForecast.bind(this);
     this.dayTime = this.dayTime.bind(this);
     this.handleSkinChange = this.handleSkinChange.bind(this);
     this.handleSetSkin = this.handleSetSkin.bind(this);
+/*    this.setFontSize = this.setFontSize.bind(this);*/
   }
 
   componentDidMount() {
@@ -46,7 +55,7 @@ class ShowWeather extends React.Component {
           60000
         );
 
-        this.updateWeather = setInterval(
+        this.updateForecast = setInterval(
           () => this.loadForecast(),
           60000
         );
@@ -55,7 +64,12 @@ class ShowWeather extends React.Component {
           hideTitle: JSON.parse(localStorage.getItem('hideTitle')),
           skin: JSON.parse(localStorage.getItem('skin'))
               });
-        }
+
+  /*      this.setFontSize();
+        window.addEventListener("resize", this.setFontSize);
+
+       console.log(this.ref.current.offsetWidth);*/
+          }
 
 componentDidUpdate() {
       localStorage.setItem('hideTitle', JSON.stringify(this.state.hideTitle));
@@ -65,6 +79,7 @@ componentDidUpdate() {
   componentWillUnmount() {
     clearInterval(this.updateWeather);
     clearInterval(this.updateForecast);
+  /*  window.removeEventListener("resize", this.setFontSize);*/
   }
 
   loadWeather() {
@@ -115,6 +130,16 @@ componentDidUpdate() {
     });
   }
 
+/*  setFontSize() {
+    this.setState({
+      fontSize1: this.ref.current.offsetWidth * 2.7 + '%',
+      fontSize2: this.ref.current.offsetWidth * 2.7 + '%',
+      fontSize3: this.ref.current.offsetWidth * 2.7 + '%',
+      fontSize4: this.ref.current.offsetWidth * 2.7 + '%',
+      fontSize5: this.ref.current.offsetWidth * 2.7 + '%'
+    })
+  }*/
+
   render() {
 
     if (this.state.hideTitle === null) {
@@ -128,12 +153,12 @@ componentDidUpdate() {
     else {
       return (
         <div className="background" style={{backgroundImage: "url(" + (this.dayTime()? day_img_cov : night_img_cov) + ")"}}>
-          <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}}>
+          <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}} ref={this.ref}>
             <Skin value={this.state.skin} />
             <Button skin={this.handleSkinChange} />
             <WeatherGraphics graphics={this.state.icon} dayTime={this.dayTime()} />
             <div className="container">
-              <Weather temperature={this.state.temperature} />
+              <Weather temperature={this.state.temperature} fontSize={this.state.fontSize1} />
               <DateTime />
             </div>
             <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} />
