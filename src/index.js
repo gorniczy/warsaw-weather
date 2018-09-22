@@ -37,7 +37,7 @@ class ShowWeather extends React.Component {
       fontSize5: ""
     }
 
-    this.ref = React.createRef();
+//    this.ref = React.createRef();
 
     this.loadWeather = this.loadWeather.bind(this);
     this.loadForecast = this.loadForecast.bind(this);
@@ -66,9 +66,9 @@ class ShowWeather extends React.Component {
               });
 
   /*      this.setFontSize();
-        window.addEventListener("resize", this.setFontSize);
+        window.addEventListener("resize", this.setFontSize);*/
 
-       console.log(this.ref.current.offsetWidth);*/
+
           }
 
 componentDidUpdate() {
