@@ -30,21 +30,17 @@ class ShowWeather extends React.Component {
       forecastThree: "",
       forecastFour: "",
       forecastFive: "",
-      fontSize1: "",
-      fontSize2: "",
-      fontSize3: "",
-      fontSize4: "",
-      fontSize5: ""
+      fontSize: ""
     }
 
-//    this.ref = React.createRef();
+    this.ref = React.createRef();
 
     this.loadWeather = this.loadWeather.bind(this);
     this.loadForecast = this.loadForecast.bind(this);
     this.dayTime = this.dayTime.bind(this);
     this.handleSkinChange = this.handleSkinChange.bind(this);
     this.handleSetSkin = this.handleSetSkin.bind(this);
-/*    this.setFontSize = this.setFontSize.bind(this);*/
+    this.setFontSize = this.setFontSize.bind(this);
   }
 
   componentDidMount() {
@@ -64,22 +60,22 @@ class ShowWeather extends React.Component {
           hideTitle: JSON.parse(localStorage.getItem('hideTitle')),
           skin: JSON.parse(localStorage.getItem('skin'))
               });
-
-  /*      this.setFontSize();
-        window.addEventListener("resize", this.setFontSize);*/
-
+          window.addEventListener("load", this.setFontSize);
+          window.addEventListener("resize", this.setFontSize);
 
           }
 
-componentDidUpdate() {
+componentDidUpdate(prevProps, prevState) {
       localStorage.setItem('hideTitle', JSON.stringify(this.state.hideTitle));
       localStorage.setItem('skin', JSON.stringify(this.state.skin));
-        }
+                console.log(this.state.fontSize);
+      }
 
   componentWillUnmount() {
     clearInterval(this.updateWeather);
     clearInterval(this.updateForecast);
-  /*  window.removeEventListener("resize", this.setFontSize);*/
+    window.removeEventListener("load", this.setFontSize);
+    window.removeEventListener("resize", this.setFontSize);
   }
 
   loadWeather() {
@@ -130,15 +126,11 @@ componentDidUpdate() {
     });
   }
 
-/*  setFontSize() {
+  setFontSize() {
     this.setState({
-      fontSize1: this.ref.current.offsetWidth * 2.7 + '%',
-      fontSize2: this.ref.current.offsetWidth * 2.7 + '%',
-      fontSize3: this.ref.current.offsetWidth * 2.7 + '%',
-      fontSize4: this.ref.current.offsetWidth * 2.7 + '%',
-      fontSize5: this.ref.current.offsetWidth * 2.7 + '%'
+      fontSize: this.ref.current.offsetWidth
     })
-  }*/
+  }
 
   render() {
 
