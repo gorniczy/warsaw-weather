@@ -42,7 +42,7 @@ componentWillUnmount() {
 
   render() {
     return (
-      <p className="date_time">{this.state.day}    {this.state.date}.{this.state.month}.{this.state.year}    {this.state.time}</p>
+      <p className="date_time" style = {{fontSize: this.props.fontSize}}>{this.state.day}    {this.state.date}.{this.state.month}.{this.state.year}    {this.state.time}</p>
     );
   }
 }

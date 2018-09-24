@@ -6,7 +6,8 @@ export class Button extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: "none"
+      displayBlock: "none",
+      displayFlex: "none"
     }
     this.changeSkin = this.changeSkin.bind(this);
     this.display = this.display.bind(this);
@@ -19,18 +20,21 @@ export class Button extends React.Component {
 
   display() {
     this.setState({
-    display: this.state.display === "flex"? "none" : "flex"
+    displayBlock: this.state.displayBlock === "block"? "none" : "block",
+    displayFlex: this.state.displayFlex === "flex"? "none" : "flex"
   });
   }
 
   render() {
     return (
-      <div className="btn" onMouseEnter={this.display} onMouseLeave={this.display}>
-        <img src={btn_img} className="btn_img" alt="button" />
-        <div className="dropdown" style={{display: this.state.display}}>
-          <a onClick={this.changeSkin} text="Ochota">Ochota</a>
-          <a onClick={this.changeSkin} text="Wola">Wola</a>
-          <a onClick={this.changeSkin} text="Mokotów">Mokotów</a>
+      <div onMouseEnter={this.display} onMouseLeave={this.display}>
+        <div className="btn">
+          <img src={btn_img} className="btn_img" alt="button" />
+        </div>
+        <div className="dropdown" style={{display: window.matchMedia("(orientation: landscape)").matches ? this.state.displayBlock : this.state.displayFlex}}>
+          <a onClick={this.changeSkin} text="Ochota" style={{fontSize: this.props.fontSize}}>Ochota</a>
+          <a onClick={this.changeSkin} text="Wola" style={{fontSize: this.props.fontSize}}>Wola</a>
+          <a onClick={this.changeSkin} text="Mokotów" style={{fontSize: this.props.fontSize}}>Mokotów</a>
         </div>
       </div>
     );
