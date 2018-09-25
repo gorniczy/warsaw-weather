@@ -55,11 +55,16 @@ class ShowWeather extends React.Component {
           () => this.loadForecast(),
           60000
         );
-
-        this.setState({
+// set default skin to "Ochota"; remove "if" after enabling title-screen choice
+        if (localStorage.getItem('skin') === null) {
+          this.setState({skin: "OCHOTA"});
+        }
+        else {
+          this.setState({
           hideTitle: JSON.parse(localStorage.getItem('hideTitle')),
           skin: JSON.parse(localStorage.getItem('skin'))
               });
+          }
 
           window.addEventListener("load", this.setFontSize);
           window.addEventListener("resize", this.setFontSize);
@@ -68,7 +73,6 @@ class ShowWeather extends React.Component {
 componentDidUpdate(prevProps, prevState) {
       localStorage.setItem('hideTitle', JSON.stringify(this.state.hideTitle));
       localStorage.setItem('skin', JSON.stringify(this.state.skin));
-      console.log(this.state.fontSize);
       }
 
   componentWillUnmount() {
@@ -133,27 +137,31 @@ componentDidUpdate(prevProps, prevState) {
   }
 
   render() {
+    let landscape = window.matchMedia("(orientation: landscape)").matches;
 
+// title screen placeholder below
+/*
     if (this.state.hideTitle === null) {
       return (
-        <div className="background" style={{backgroundImage: "url(" + title_img + ")"}}>
+        <div>
           <Title title={this.handleSetSkin} />
         </div>
       );
     }
 
-    else {
+    else
+*/
       return (
         <div className="background" style={{backgroundImage: "url(" + (this.dayTime()? day_img_cov : night_img_cov) + ")"}}>
           <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}} ref={this.ref}>
-            <Skin value={this.state.skin} fontSize={this.state.fontSize * 0.2 + "%"} />
-            <Button skin={this.handleSkinChange} fontSize={this.state.fontSize * 0.1 + "%"} />
+            <Skin value={this.state.skin} fontSize={this.state.fontSize * (landscape? 0.2 : 0.6) + "%"} />
+            <Button skin={this.handleSkinChange} fontSize={this.state.fontSize * (landscape? 0.1 : 0.3) + "%"} />
             <WeatherGraphics graphics={this.state.icon} dayTime={this.dayTime()} />
             <div className="container">
-              <Weather temperature={this.state.temperature} fontSize={this.state.fontSize * 1.1 + "%"} />
+              <Weather temperature={this.state.temperature} fontSize={this.state.fontSize * (landscape? 1.1 : 1.8) + "%"} />
               <DateTime fontSize={this.state.fontSize * 0.25 + "%"} />
             </div>
-            <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} fontSize={this.state.fontSize * 0.17 + "%"}/>
+            <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} fontSize={this.state.fontSize * (landscape? 0.17 : 0.35) + "%"}/>
             {this.state.skin === "OCHOTA" && <div className="nav_box_1"></div>}
             {this.state.skin === "WOLA" && <div className="nav_box_2"></div>}
             {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"></div>}
@@ -162,8 +170,8 @@ componentDidUpdate(prevProps, prevState) {
           </div>
         </div>
     );
+// }
   }
-}
 
 }
 
