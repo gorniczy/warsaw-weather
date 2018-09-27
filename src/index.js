@@ -5,10 +5,10 @@ import { DateTime } from './DateTime';
 import { Weather } from './Weather';
 import { Button } from './Button';
 import { Skin } from './Skin';
-import { Title } from './Title';
+/* import { Title } from './Title'; */
 import { Forecast } from './Forecast';
 import { WeatherGraphics } from './WeatherGraphics';
-import title_img from './img/Title-background.png';
+/* import title_img from './img/Title-background.png'; */
 import day_img_cov from './img/Day-background-cover.png';
 import night_img_cov from './img/Night-background-cover.png';
 import day_img from './img/Day-background.png';
@@ -158,7 +158,7 @@ componentDidUpdate(prevProps, prevState) {
             <Button skin={this.handleSkinChange} fontSize={this.state.fontSize * (landscape? 0.1 : 0.3) + "%"} />
             <WeatherGraphics graphics={this.state.icon} dayTime={this.dayTime()} />
             <div className="container">
-              <Weather temperature={this.state.temperature} fontSize={this.state.fontSize * (landscape? 1.1 : 1.8) + "%"} />
+              <Weather temperature={this.state.temperature} fontSize={this.state.fontSize * (landscape? 1.1 : 1.6) + "%"} />
               <DateTime fontSize={this.state.fontSize * 0.25 + "%"} />
             </div>
             <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} fontSize={this.state.fontSize * (landscape? 0.17 : 0.35) + "%"}/>
