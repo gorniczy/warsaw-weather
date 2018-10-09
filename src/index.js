@@ -30,7 +30,7 @@ class ShowWeather extends React.Component {
       forecastThree: "",
       forecastFour: "",
       forecastFive: "",
-      fontSize: ""
+      appWidth: ""
     }
 
     this.ref = React.createRef();
@@ -40,7 +40,7 @@ class ShowWeather extends React.Component {
     this.dayTime = this.dayTime.bind(this);
     this.handleSkinChange = this.handleSkinChange.bind(this);
     this.handleSetSkin = this.handleSetSkin.bind(this);
-    this.setFontSize = this.setFontSize.bind(this);
+    this.setAppWidth = this.setAppWidth.bind(this);
   }
 
   componentDidMount() {
@@ -66,11 +66,11 @@ class ShowWeather extends React.Component {
               });
           }
 
-          window.addEventListener("load", this.setFontSize);
-          window.addEventListener("resize", this.setFontSize);
+          window.addEventListener("load", this.setAppWidth);
+          window.addEventListener("resize", this.setAppWidth);
           }
 
-componentDidUpdate(prevProps, prevState) {
+componentDidUpdate() {
       localStorage.setItem('hideTitle', JSON.stringify(this.state.hideTitle));
       localStorage.setItem('skin', JSON.stringify(this.state.skin));
       }
@@ -78,8 +78,8 @@ componentDidUpdate(prevProps, prevState) {
   componentWillUnmount() {
     clearInterval(this.updateWeather);
     clearInterval(this.updateForecast);
-    window.removeEventListener("load", this.setFontSize);
-    window.removeEventListener("resize", this.setFontSize);
+    window.removeEventListener("load", this.setAppWidth);
+    window.removeEventListener("resize", this.setAppWidth);
   }
 
   loadWeather() {
@@ -130,9 +130,9 @@ componentDidUpdate(prevProps, prevState) {
     });
   }
 
-  setFontSize() {
+  setAppWidth() {
     this.setState({
-      fontSize: this.ref.current.offsetWidth
+      appWidth: this.ref.current.offsetWidth
     })
   }
 
@@ -154,14 +154,14 @@ componentDidUpdate(prevProps, prevState) {
       return (
         <div className="background" style={{backgroundImage: "url(" + (this.dayTime()? day_img_cov : night_img_cov) + ")"}}>
           <div className="app" style={{backgroundImage: "url(" + (this.dayTime()? day_img : night_img) + ")"}} ref={this.ref}>
-            <Skin value={this.state.skin} fontSize={this.state.fontSize * (landscape? 0.2 : 0.6) + "%"} />
-            <Button skin={this.handleSkinChange} fontSize={this.state.fontSize * (landscape? 0.1 : 0.3) + "%"} />
+            <Skin value={this.state.skin} fontSize={this.state.appWidth * (landscape? 0.2 : 0.6) + "%"} />
+            <Button skin={this.handleSkinChange} fontSize={this.state.appWidth * (landscape? 0.1 : 0.3) + "%"} />
             <WeatherGraphics graphics={this.state.icon} dayTime={this.dayTime()} />
             <div className="container">
-              <Weather temperature={this.state.temperature} fontSize={this.state.fontSize * (landscape? 1.1 : 1.6) + "%"} />
-              <DateTime fontSize={this.state.fontSize * 0.25 + "%"} />
+              <Weather temperature={this.state.temperature} fontSize={this.state.appWidth * (landscape? 1.1 : 1.6) + "%"} />
+              <DateTime fontSize={this.state.appWidth * 0.25 + "%"} />
             </div>
-            <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} fontSize={this.state.fontSize * (landscape? 0.17 : 0.35) + "%"}/>
+            <Forecast forecastOne={this.state.forecastOne} forecastTwo={this.state.forecastTwo} forecastThree={this.state.forecastThree} forecastFour={this.state.forecastFour} forecastFive={this.state.forecastFive} fontSize={this.state.appWidth * (landscape? 0.17 : 0.35) + "%"}/>
             {this.state.skin === "OCHOTA" && <div className="nav_box_1"></div>}
             {this.state.skin === "WOLA" && <div className="nav_box_2"></div>}
             {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"></div>}
