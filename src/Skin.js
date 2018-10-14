@@ -15,16 +15,3 @@ export const Skin = (props) => {
             );
 
 }
-
-/*export class Skin extends React.Component {
-  render() {
-    return (<div>
-              <p className="title" style={{fontSize: this.props.fontSize}}>{this.props.value}</p>
-              {this.props.value === "OCHOTA" && <img className="facade" src={ochota_img} alt="house facade" />}
-              {this.props.value === "WOLA" && <img className="facade" src={wola_img} alt="house facade" />}
-              {this.props.value === "MOKOTÓW" && <img className="facade" src={mokotow_img} alt="house facade" />}
-            </div>
-            );
-          }
-}
-*/
