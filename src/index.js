@@ -89,7 +89,7 @@ componentDidUpdate() {
         (result) => {
                 this.setState({
                   icon: result.weather[0].icon.slice(0, 2),
-                  temperature: result.main.temp,
+                  temperature: Math.round(result.main.temp),
                   sunrise: new Date(result.sys.sunrise*1000),
                   sunset: new Date(result.sys.sunset*1000)
                 });
