@@ -53,7 +53,7 @@ class ShowWeather extends React.Component {
 
         this.updateForecast = setInterval(
           () => this.loadForecast(),
-          60000
+          43200000
         );
 // set default skin to "Ochota"; remove "if" after enabling title-screen choice
         if (localStorage.getItem('skin') === null) {
@@ -98,16 +98,16 @@ componentDidUpdate() {
   }
 
   loadForecast() {
-    fetch("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22warsaw%2C%20pl%22)%20and%20u%3D%27c%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
+    fetch("https://api.worldweatheronline.com/premium/v1/weather.ashx?key=30ff9cad9f1a4d99a14234837190501&q=Warsaw&format=json&num_of_days=6")
             .then(res => res.json())
             .then(
               (result) => {
                       this.setState({
-                        forecastOne:  result.query.results.channel.item.forecast[1].high,
-                        forecastTwo: result.query.results.channel.item.forecast[2].high,
-                        forecastThree: result.query.results.channel.item.forecast[3].high,
-                        forecastFour: result.query.results.channel.item.forecast[4].high,
-                        forecastFive: result.query.results.channel.item.forecast[5].high
+                        forecastOne:  result.data.weather[1].maxtempC,
+                        forecastTwo: result.data.weather[2].maxtempC,
+                        forecastThree: result.data.weather[3].maxtempC,
+                        forecastFour: result.data.weather[4].maxtempC,
+                        forecastFive: result.data.weather[5].maxtempC
                       });
                   },
                 );
