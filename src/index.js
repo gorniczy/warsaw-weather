@@ -13,7 +13,13 @@ import day_img_cov from './img/Day-background-cover.png';
 import night_img_cov from './img/Night-background-cover.png';
 import day_img from './img/Day-background.png';
 import night_img from './img/Night-background.png';
+import ReactGA from 'react-ga';
 import registerServiceWorker from './registerServiceWorker';
+
+function initializeReactGA() {
+    ReactGA.initialize('UA-132054959-3');
+    ReactGA.pageview('/homepage');
+}
 
 class ShowWeather extends React.Component {
   constructor(props) {
