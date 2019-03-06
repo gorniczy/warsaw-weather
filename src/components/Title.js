@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './img/logo.png'
+import logo from '../img/logo.png'
 import './Title.css';
 
 // placeholder for title screen

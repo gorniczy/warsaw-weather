@@ -1,5 +1,5 @@
 import React from 'react';
-import btn_img from './img/button.png';
+import btn_img from '../img/button.png';
 import './Button.css';
 
 export class Button extends React.Component {
