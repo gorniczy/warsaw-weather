@@ -1,8 +1,8 @@
 import React from 'react';
 import './Skin.css';
-import ochota_img from './img/Ochota.jpeg';
-import wola_img from './img/Wola.JPG';
-import mokotow_img from './img/Mokotów.JPG';
+import ochota_img from '../img/Ochota.jpeg';
+import wola_img from '../img/Wola.JPG';
+import mokotow_img from '../img/Mokotów.JPG';
 
 export const Skin = (props) => {
 

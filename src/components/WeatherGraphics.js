@@ -1,18 +1,18 @@
 import React from 'react';
 import './WeatherGraphics.css';
-import clear_sky_img1 from './img/Clear Sky Sun.png';
-import clear_sky_img2 from './img/Clear Sky Moon.png';
-import few_clouds_img1 from './img/Few Clouds Sun.png';
-import few_clouds_img2 from './img/Few Clouds Moon.png';
-import scattered_clouds_img from './img/Scattered Clouds.png';
-import broken_clouds_img from './img/Broken Clouds.png';
-import rain_img1 from './img/Rain Sun.png';
-import rain_img2 from './img/Rain Moon.png';
-import shower_rain_img from './img/Shower Rain.png';
-import thunderstorm_img from './img/Thunderstorm.png';
-import snow_img from './img/Snow.png';
-import mist_img1 from './img/Mist Sun.png';
-import mist_img2 from './img/Mist Moon.png';
+import clear_sky_img1 from '../img/Clear Sky Sun.png';
+import clear_sky_img2 from '../img/Clear Sky Moon.png';
+import few_clouds_img1 from '../img/Few Clouds Sun.png';
+import few_clouds_img2 from '../img/Few Clouds Moon.png';
+import scattered_clouds_img from '../img/Scattered Clouds.png';
+import broken_clouds_img from '../img/Broken Clouds.png';
+import rain_img1 from '../img/Rain Sun.png';
+import rain_img2 from '../img/Rain Moon.png';
+import shower_rain_img from '../img/Shower Rain.png';
+import thunderstorm_img from '../img/Thunderstorm.png';
+import snow_img from '../img/Snow.png';
+import mist_img1 from '../img/Mist Sun.png';
+import mist_img2 from '../img/Mist Moon.png';
 
 export class WeatherGraphics extends React.Component {
   render(){

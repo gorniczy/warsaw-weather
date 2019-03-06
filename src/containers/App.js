@@ -1,11 +1,11 @@
 import React from 'react';
-import { DateTime } from '../DateTime';
-import { Weather } from '../Weather';
-import { Button } from '../Button';
-import { Skin } from '../Skin';
+import { DateTime } from '../components/DateTime';
+import { Weather } from '../components/Weather';
+import { Button } from '../components/Button';
+import { Skin } from '../components/Skin';
 /* import { Title } from './Title'; */
-import { Forecast } from '../Forecast';
-import { WeatherGraphics } from '../WeatherGraphics';
+import { Forecast } from '../components/Forecast';
+import { WeatherGraphics } from '../components/WeatherGraphics';
 /* import title_img from './img/Title-background.png'; */
 import day_img_cov from '../img/Day-background-cover.png';
 import night_img_cov from '../img/Night-background-cover.png';
