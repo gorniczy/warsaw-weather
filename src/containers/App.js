@@ -95,7 +95,7 @@ componentDidUpdate() {
   }
 
   loadForecast() {
-    fetch("https://api.worldweatheronline.com/premium/v1/weather.ashx?key=30ff9cad9f1a4d99a14234837190501&q=Warsaw&format=json&num_of_days=6")
+    fetch("https://api.worldweatheronline.com/premium/v1/weather.ashx?key=c9a96e6278db48a8baa115236191103&q=Warsaw&format=json&num_of_days=6")
             .then(res => res.json())
             .then(
               (result) => {
