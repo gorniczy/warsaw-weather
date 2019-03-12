@@ -32,12 +32,6 @@ class App extends React.Component {
 
     this.ref = React.createRef();
 
-    this.loadWeather = this.loadWeather.bind(this);
-    this.loadForecast = this.loadForecast.bind(this);
-    this.dayTime = this.dayTime.bind(this);
-    this.handleSkinChange = this.handleSkinChange.bind(this);
-    this.handleSetSkin = this.handleSetSkin.bind(this);
-    this.setAppWidth = this.setAppWidth.bind(this);
   }
 
   componentDidMount() {
@@ -79,7 +73,7 @@ componentDidUpdate() {
     window.removeEventListener("resize", this.setAppWidth);
   }
 
-  loadWeather() {
+  loadWeather = () => {
     fetch("https://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=7ed8227c3cabe727f6beaca92aa3365c&units=metric")
       .then(res => res.json())
       .then(
@@ -94,7 +88,7 @@ componentDidUpdate() {
           );
   }
 
-  loadForecast() {
+  loadForecast = () => {
     fetch("https://api.worldweatheronline.com/premium/v1/weather.ashx?key=c9a96e6278db48a8baa115236191103&q=Warsaw&format=json&num_of_days=6")
             .then(res => res.json())
             .then(
@@ -110,24 +104,24 @@ componentDidUpdate() {
                 );
   }
 
-  dayTime() {
+  dayTime = () => {
     return new Date() > this.state.sunrise && new Date() < this.state.sunset;
   }
 
-  handleSkinChange(skin) {
+  handleSkinChange = (skin) => {
     this.setState({
       skin: skin.toUpperCase()
     });
   }
 
-  handleSetSkin(skin) {
+  handleSetSkin = (skin) => {
     this.setState({
       hideTitle: true,
       skin: skin.toUpperCase()
     });
   }
 
-  setAppWidth() {
+  setAppWidth = () => {
     this.setState({
       appWidth: this.ref.current.offsetWidth
     })
