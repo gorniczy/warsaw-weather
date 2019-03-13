@@ -5,12 +5,8 @@ import "./Title.css";
 // placeholder for title screen
 
 export class Title extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setSkin = this.setSkin.bind(this);
-  }
 
-  setSkin(e) {
+  setSkin = (e) => {
     const skinName = e.target.text;
     this.props.title(skinName);
   }

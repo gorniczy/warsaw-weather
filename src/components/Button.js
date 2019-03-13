@@ -8,16 +8,14 @@ export class Button extends React.Component {
     this.state = {
       display: "none"
     };
-    this.changeSkin = this.changeSkin.bind(this);
-    this.display = this.display.bind(this);
   }
 
-  changeSkin(e) {
+  changeSkin = (e) => {
     const skinName = e.target.text;
     this.props.skin(skinName);
   }
 
-  display() {
+  display = () => {
     this.setState({
       display: this.state.display === "flex" ? "none" : "flex"
     });

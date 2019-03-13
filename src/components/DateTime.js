@@ -11,7 +11,6 @@ export class DateTime extends React.Component {
       day: "",
       time: ""
     };
-    this.loadTime = this.loadTime.bind(this);
   }
 
   componentDidMount() {
@@ -23,7 +22,7 @@ export class DateTime extends React.Component {
     clearInterval(this.timer);
   }
 
-  loadTime() {
+  loadTime = () => {
     const date = new Date();
     const day = ["ND", "PN", "WT", "ŚR", "CZW", "PT", "SB"];
     const month = [
