@@ -49,13 +49,13 @@ export class DateTime extends React.Component {
         ":" +
         ("0" + date.getMinutes()).slice(-2)
     });
-  }
+  };
 
   render() {
     return (
       <p className="date_time" style={{ fontSize: this.props.fontSize }}>
-        {this.state.day} {this.state.date}.{this.state.month}.{this.state.year}{" "}
-        {this.state.time}
+        {this.state.day}
+        {this.state.date}.{this.state.month}.{this.state.year} {this.state.time}
       </p>
     );
   }
