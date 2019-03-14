@@ -93,10 +93,6 @@ class App extends React.Component {
       });
   };
 
-  dayTime = () => {
-    return new Date() > this.state.sunrise && new Date() < this.state.sunset;
-  };
-
   handleSkinChange = skin => {
     this.setState({
       skin: skin.toUpperCase()
@@ -116,21 +112,23 @@ class App extends React.Component {
   };
 
   render() {
-    let landscape = window.matchMedia("(orientation: landscape)").matches;
+    const landscape = window.matchMedia("(orientation: landscape)").matches;
+
+    const dayTime = new Date() > this.state.sunrise && new Date() < this.state.sunset;
 
     return (
       <div
         className="background"
         style={{
           backgroundImage:
-            "url(" + (this.dayTime() ? day_img_cov : night_img_cov) + ")"
+            "url(" + (dayTime ? day_img_cov : night_img_cov) + ")"
         }}
       >
         <div
           className="app"
           style={{
             backgroundImage:
-              "url(" + (this.dayTime() ? day_img : night_img) + ")"
+              "url(" + (dayTime ? day_img : night_img) + ")"
           }}
           ref={this.ref}
         >
@@ -144,7 +142,7 @@ class App extends React.Component {
           />{" "}
           <WeatherGraphics
             graphics={this.state.icon}
-            dayTime={this.dayTime()}
+            dayTime={dayTime}
           />{" "}
           <div className="container">
             <Weather
