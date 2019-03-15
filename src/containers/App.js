@@ -24,7 +24,8 @@ class App extends React.Component {
       forecastThree: "",
       forecastFour: "",
       forecastFive: "",
-      appWidth: ""
+      appWidth: "",
+      showDistricts: "none"
     };
 
     this.ref = React.createRef();
@@ -105,6 +106,12 @@ class App extends React.Component {
     });
   };
 
+  dropdown = () => {
+    this.setState({
+      showDistricts: this.state.showDistricts === "flex" ? "none" : "flex"
+    });
+  }
+
   setAppWidth = () => {
     this.setState({
       appWidth: this.ref.current.offsetWidth
@@ -138,6 +145,8 @@ class App extends React.Component {
           />{" "}
           <Button
             skin={this.handleSkinChange}
+            dropdown={this.dropdown}
+            showDistricts={this.state.showDistricts}
             fontSize={this.state.appWidth * (landscape ? 0.1 : 0.3) + "%"}
           />{" "}
           <WeatherGraphics
