@@ -9,11 +9,11 @@ export class Button extends React.Component {
       display: "none"
     };
   }
-
-  changeSkin = (e) => {
-    const skinName = e.target.text;
-    this.props.skin(skinName);
-  }
+  //
+  // changeSkin = (e) => {
+  //   const skinName = e.target.text;
+  //   this.props.skin(skinName);
+  // }
 
   display = () => {
     this.setState({
@@ -27,29 +27,26 @@ export class Button extends React.Component {
         <div className="btn">
           <img src={btn_img} className="btn_img" alt="button" />
         </div>
-        <div className="dropdown" style={{ display: this.state.display }}>
-          <a
-            onClick={this.changeSkin}
-            text="Ochota"
+        <ul className="dropdown" style={{ display: this.state.display }}>
+          <li
+            onClick={() => this.props.skin("Ochota")}
             style={{ fontSize: this.props.fontSize }}
           >
             Ochota
-          </a>
-          <a
-            onClick={this.changeSkin}
-            text="Wola"
+          </li>
+          <li
+            onClick={() => this.props.skin("Wola")}
             style={{ fontSize: this.props.fontSize }}
           >
             Wola
-          </a>
-          <a
-            onClick={this.changeSkin}
-            text="Mokotów"
+          </li>
+          <li
+            onClick={() => this.props.skin("Mokotów")}
             style={{ fontSize: this.props.fontSize }}
           >
             Mokotów
-          </a>
-        </div>
+          </li>
+        </ul>
       </div>
     );
   }
