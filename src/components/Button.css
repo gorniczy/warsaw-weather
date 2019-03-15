@@ -16,6 +16,8 @@
   position: absolute;
   top: 10%;
   left: 1%;
+  padding: 0;
+  margin: 0;
   opacity: 0.87;
   background: #FFFDFD;
   border-radius: 12px;
@@ -25,25 +27,26 @@
   min-width: 4.5rem;
 }
 
-.dropdown a {
+.dropdown li {
   padding: 10%;
   font-family: Arial;
   font-size: 1.2vw;
   color: #000000;
   text-decoration: none;
+  list-style-type: none;
 }
 
-.dropdown a:nth-of-type(1):hover {
+.dropdown li:nth-of-type(1):hover {
   background: #E4DFDF;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
 
-.dropdown a:nth-of-type(2):hover {
+.dropdown li:nth-of-type(2):hover {
   background: #E4DFDF;
 }
 
-.dropdown a:nth-of-type(3):hover {
+.dropdown li:nth-of-type(3):hover {
   background: #E4DFDF;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -80,7 +83,7 @@
     min-width: none;
   }
 
-  .dropdown a {
+  .dropdown li {
     padding: 2.5%;
     font-family: Arial;
     font-size: 1.2vw;
@@ -88,7 +91,7 @@
     text-decoration: none;
   }
 
-  .dropdown a:nth-of-type(1):hover {
+  .dropdown li:nth-of-type(1):hover {
     background: #DDDDDD;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -96,11 +99,11 @@
     border-bottom-right-radius: 6px;
   }
 
-  .dropdown a:nth-of-type(2):hover {
+  .dropdown li:nth-of-type(2):hover {
     background: #DDDDDD;
   }
 
-  .dropdown a:nth-of-type(3):hover {
+  .dropdown li:nth-of-type(3):hover {
     background: #DDDDDD;
     border-top-left-radius: 6px;
     border-top-right-radius: 0;
