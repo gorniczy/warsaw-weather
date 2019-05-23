@@ -80,7 +80,7 @@ class App extends React.Component {
 
   loadForecast = () => {
     fetch(
-      "https://api.worldweatheronline.com/premium/v1/weather.ashx?key=c9a96e6278db48a8baa115236191103&q=Warsaw&format=json&num_of_days=6"
+      "https://api.worldweatheronline.com/premium/v1/weather.ashx?key=9f4c6adcbedc4f05b34203925192305&q=Warsaw&format=json&num_of_days=6"
     )
       .then(res => res.json())
       .then(result => {
