@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/warsaw-weather/precache-manifest.3ed131defd288674f2d4023bdb342e78.js"
+  "/warsaw-weather/precache-manifest.3ed2130826f1e6f50132b4b28a2b749d.js"
 );
 
 workbox.clientsClaim();

@@ -1,5 +1,5 @@
 {
-  "main.css": "/warsaw-weather/static/css/main.53c19e7e.chunk.css",
+  "main.css": "/warsaw-weather/static/css/main.bc798fe3.chunk.css",
   "main.js": "/warsaw-weather/static/js/main.5bf335b1.chunk.js",
   "main.js.map": "/warsaw-weather/static/js/main.5bf335b1.chunk.js.map",
   "runtime~main.js": "/warsaw-weather/static/js/runtime~main.80d1640b.js",
@@ -7,9 +7,9 @@
   "static/js/2.393036aa.chunk.js": "/warsaw-weather/static/js/2.393036aa.chunk.js",
   "static/js/2.393036aa.chunk.js.map": "/warsaw-weather/static/js/2.393036aa.chunk.js.map",
   "index.html": "/warsaw-weather/index.html",
-  "precache-manifest.3ed131defd288674f2d4023bdb342e78.js": "/warsaw-weather/precache-manifest.3ed131defd288674f2d4023bdb342e78.js",
+  "precache-manifest.3ed2130826f1e6f50132b4b28a2b749d.js": "/warsaw-weather/precache-manifest.3ed2130826f1e6f50132b4b28a2b749d.js",
   "service-worker.js": "/warsaw-weather/service-worker.js",
-  "static/css/main.53c19e7e.chunk.css.map": "/warsaw-weather/static/css/main.53c19e7e.chunk.css.map",
+  "static/css/main.bc798fe3.chunk.css.map": "/warsaw-weather/static/css/main.bc798fe3.chunk.css.map",
   "static/media/index.css": "/warsaw-weather/static/media/AvenirNextCondensed-UltraLight.0f21db47.ttf",
   "static/media/Broken Clouds.png": "/warsaw-weather/static/media/Broken Clouds.b63296ad.png",
   "static/media/Clear Sky Moon.png": "/warsaw-weather/static/media/Clear Sky Moon.4ead48f6.png",
