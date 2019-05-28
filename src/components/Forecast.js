@@ -10,6 +10,8 @@ export class Forecast extends React.Component {
       nextDay.push(day[x % 7]);
     }
 
+    const { forecast } = this.props;
+
     return (
       <div className="wrapper">
         <div style={{ fontSize: this.props.fontSize }}>
@@ -28,19 +30,19 @@ export class Forecast extends React.Component {
           <p>{nextDay[5]}</p>
         </div>
         <div style={{ fontSize: this.props.fontSize }}>
-          <p>{this.props.forecastOne}˚</p>
+          <p>{forecast[0]}˚</p>
         </div>
         <div style={{ fontSize: this.props.fontSize }}>
-          <p>{this.props.forecastTwo}˚</p>
+          <p>{forecast[1]}˚</p>
         </div>
         <div style={{ fontSize: this.props.fontSize }}>
-          <p>{this.props.forecastThree}˚</p>
+          <p>{forecast[2]}˚</p>
         </div>
         <div style={{ fontSize: this.props.fontSize }}>
-          <p>{this.props.forecastFour}˚</p>
+          <p>{forecast[3]}˚</p>
         </div>
         <div style={{ fontSize: this.props.fontSize }}>
-          <p>{this.props.forecastFive}˚</p>
+          <p>{forecast[4]}˚</p>
         </div>
         <span className="break_2" />
       </div>
