@@ -1,18 +1,18 @@
-import React from "react";
-import { DateTime } from "../components/DateTime";
-import { Weather } from "../components/Weather";
-import { Button } from "../components/Button";
-import { Skin } from "../components/Skin";
-import { Forecast } from "../components/Forecast";
-import { WeatherGraphics } from "../components/WeatherGraphics";
-import day_img_cov from "../img/Day-background-cover.png";
-import night_img_cov from "../img/Night-background-cover.png";
-import day_img from "../img/Day-background.png";
-import night_img from "../img/Night-background.png";
+import React from "react"
+import { DateTime } from "../components/DateTime"
+import { Weather } from "../components/Weather"
+import { Button } from "../components/Button"
+import { Skin } from "../components/Skin"
+import { Forecast } from "../components/Forecast"
+import { WeatherGraphics } from "../components/WeatherGraphics"
+import day_img_cov from "../img/Day-background-cover.png"
+import night_img_cov from "../img/Night-background-cover.png"
+import day_img from "../img/Day-background.png"
+import night_img from "../img/Night-background.png"
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       icon: "",
       temperature: "",
@@ -26,41 +26,41 @@ class App extends React.Component {
       forecastFive: "",
       appWidth: "",
       showDistricts: "none"
-    };
+    }
 
-    this.ref = React.createRef();
+    this.ref = React.createRef()
   }
 
   componentDidMount() {
-    this.loadWeather();
-    this.loadForecast();
-    this.updateWeather = setInterval(() => this.loadWeather(), 60000);
+    this.loadWeather()
+    this.loadForecast()
+    this.updateWeather = setInterval(() => this.loadWeather(), 60000)
 
-    this.updateForecast = setInterval(() => this.loadForecast(), 43200000);
+    this.updateForecast = setInterval(() => this.loadForecast(), 43200000)
 
     if (localStorage.getItem("skin") === null) {
       this.setState({
         skin: "OCHOTA"
-      });
+      })
     } else {
       this.setState({
         skin: JSON.parse(localStorage.getItem("skin"))
-      });
+      })
     }
 
-    window.addEventListener("load", this.setAppWidth);
-    window.addEventListener("resize", this.setAppWidth);
+    window.addEventListener("load", this.setAppWidth)
+    window.addEventListener("resize", this.setAppWidth)
   }
 
   componentDidUpdate() {
-    localStorage.setItem("skin", JSON.stringify(this.state.skin));
+    localStorage.setItem("skin", JSON.stringify(this.state.skin))
   }
 
   componentWillUnmount() {
-    clearInterval(this.updateWeather);
-    clearInterval(this.updateForecast);
-    window.removeEventListener("load", this.setAppWidth);
-    window.removeEventListener("resize", this.setAppWidth);
+    clearInterval(this.updateWeather)
+    clearInterval(this.updateForecast)
+    window.removeEventListener("load", this.setAppWidth)
+    window.removeEventListener("resize", this.setAppWidth)
   }
 
   loadWeather = () => {
@@ -74,9 +74,9 @@ class App extends React.Component {
           temperature: Math.round(result.main.temp),
           sunrise: new Date(result.sys.sunrise * 1000),
           sunset: new Date(result.sys.sunset * 1000)
-        });
-      });
-  };
+        })
+      })
+  }
 
   loadForecast = () => {
     fetch(
@@ -90,38 +90,41 @@ class App extends React.Component {
           forecastThree: result.data.weather[3].maxtempC,
           forecastFour: result.data.weather[4].maxtempC,
           forecastFive: result.data.weather[5].maxtempC
-        });
-      });
-  };
+        })
+      })
+  }
 
   handleSkinChange = skin => {
     this.setState({
       skin: skin.toUpperCase()
-    });
-  };
+    })
+  }
 
   handleSetSkin = skin => {
     this.setState({
       skin: skin.toUpperCase()
-    });
-  };
+    })
+  }
 
   dropdown = () => {
     this.setState({
       showDistricts: this.state.showDistricts === "flex" ? "none" : "flex"
-    });
+    })
   }
 
   setAppWidth = () => {
     this.setState({
       appWidth: this.ref.current.offsetWidth
-    });
-  };
+    })
+  }
 
   render() {
-    const landscape = window.matchMedia("(orientation: landscape)").matches;
+    const landscape = window.matchMedia("(orientation: landscape)").matches
 
-    const dayTime = new Date() > this.state.sunrise && new Date() < this.state.sunset;
+    const dayTime =
+      new Date() > this.state.sunrise && new Date() < this.state.sunset
+
+    const { skin, appWidth, showDistricts, icon, temperature, forecastOne, forecastTwo, forecastThree, forecastFour, forecastFive } = this.state
 
     return (
       <div
@@ -134,48 +137,46 @@ class App extends React.Component {
         <div
           className="app"
           style={{
-            backgroundImage:
-              "url(" + (dayTime ? day_img : night_img) + ")"
+            backgroundImage: "url(" + (dayTime ? day_img : night_img) + ")"
           }}
           ref={this.ref}
         >
           <Skin
-            value={this.state.skin}
-            fontSize={this.state.appWidth * (landscape ? 0.2 : 0.6) + "%"}
-          />{" "}
+            value={skin}
+            fontSize={appWidth * (landscape ? 0.2 : 0.6) + "%"}
+          />
           <Button
             skin={this.handleSkinChange}
             dropdown={this.dropdown}
-            showDistricts={this.state.showDistricts}
-            fontSize={this.state.appWidth * (landscape ? 0.1 : 0.3) + "%"}
-          />{" "}
-          <WeatherGraphics
-            graphics={this.state.icon}
-            dayTime={dayTime}
-          />{" "}
+            showDistricts={showDistricts}
+            fontSize={appWidth * (landscape ? 0.1 : 0.3) + "%"}
+          />
+          <WeatherGraphics graphics={icon} dayTime={dayTime} />
           <div className="container">
             <Weather
-              temperature={this.state.temperature}
-              fontSize={this.state.appWidth * (landscape ? 1.1 : 1.6) + "%"}
-            />{" "}
-            <DateTime fontSize={this.state.appWidth * 0.25 + "%"} />{" "}
-          </div>{" "}
+              temperature={temperature}
+              fontSize={appWidth * (landscape ? 1.1 : 1.6) + "%"}
+            />
+            <DateTime fontSize={appWidth * 0.25 + "%"} />
+          </div>
           <Forecast
-            forecastOne={this.state.forecastOne}
-            forecastTwo={this.state.forecastTwo}
-            forecastThree={this.state.forecastThree}
-            forecastFour={this.state.forecastFour}
-            forecastFive={this.state.forecastFive}
-            fontSize={this.state.appWidth * (landscape ? 0.17 : 0.35) + "%"}
-          />{" "}
-          {this.state.skin === "OCHOTA" && <div className="nav_box_1"> </div>}{" "}
-          {this.state.skin === "WOLA" && <div className="nav_box_2"> </div>}{" "}
-          {this.state.skin === "MOKOTÓW" && <div className="nav_box_3"> </div>}{" "}
-          <div className="box_1"> </div> <div className="box_2"> </div>{" "}
-        </div>{" "}
+            forecast={[
+              forecastOne,
+              forecastTwo,
+              forecastThree,
+              forecastFour,
+              forecastFive
+            ]}
+            fontSize={appWidth * (landscape ? 0.17 : 0.35) + "%"}
+          />
+          {skin === "OCHOTA" && <div className="nav_box_1"> </div>}
+          {skin === "WOLA" && <div className="nav_box_2"> </div>}
+          {skin === "MOKOTÓW" && <div className="nav_box_3"> </div>}
+          <div className="box_1"> </div> <div className="box_2"> </div>
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
