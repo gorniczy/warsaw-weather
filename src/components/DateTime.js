@@ -25,8 +25,7 @@ export class DateTime extends React.Component {
   loadTime = () => {
     const date = new Date()
     const day = ["ND", "PN", "WT", "ŚR", "CZW", "PT", "SB"]
-    const month =
-    ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
+    const month = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
     this.setState({
       year: date.getFullYear(),
       month: month[date.getMonth()],

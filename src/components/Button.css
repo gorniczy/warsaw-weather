@@ -52,6 +52,13 @@
   border-bottom-right-radius: 12px;
 }
 
+.nav_box {
+  opacity: 0.87;
+  background-color: #FFFDFD;
+  border-radius: 24px;
+  z-index: -10;
+}
+
 @media only screen and (orientation: portrait) {
   .btn {
     position: absolute;

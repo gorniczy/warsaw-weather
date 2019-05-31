@@ -1,6 +1,6 @@
-/* {
+/* * {
   outline: 1px solid red;
-}*/
+} */
 
 @font-face {
   font-family: AvenirNextCondensed-Regular;
@@ -53,29 +53,6 @@ body {
   right: 1.5%;
   width: 41%;
   height: 60%;
-}
-
-.nav_box_1, .nav_box_2, .nav_box_3 {
-  position: absolute;
-  top: 3%;
-  left: 1%;
-  height: 7%;
-  opacity: 0.87;
-  background: #FFFDFD;
-  border-radius: 24px;
-  z-index: -10;
-}
-
-.nav_box_1 {
-  width: 17%;
-}
-
-.nav_box_2 {
-  width: 14%;
-}
-
-.nav_box_3 {
-  width: 20%;
 }
 
 .box_1 {
@@ -156,10 +133,6 @@ body {
     background: #FFFDFD;
     box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
     border-radius: 1.5vw;
-  }
-
-  .nav_box_1, .nav_box_2, .nav_box_3 {
-    display: none;
   }
 
 }
