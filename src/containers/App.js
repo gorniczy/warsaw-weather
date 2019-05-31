@@ -154,13 +154,14 @@ class App extends React.Component {
         >
           <Skin
             value={skin}
-            fontSize={appWidth * (landscape ? 0.2 : 0.6) + "%"}
           />
           <Button
+            value={skin}
             skin={this.handleSkinChange}
             dropdown={this.dropdown}
             showDistricts={showDistricts}
-            fontSize={appWidth * (landscape ? 0.1 : 0.3) + "%"}
+            fontSizeNav={appWidth * (landscape ? 0.1 : 0.3) + "%"}
+            fontSizeTitle={appWidth * (landscape ? 0.2 : 0.6) + "%"}
           />
           <WeatherGraphics graphics={icon} dayTime={dayTime} />
           <div className="container">
@@ -180,9 +181,6 @@ class App extends React.Component {
             ]}
             fontSize={appWidth * (landscape ? 0.17 : 0.35) + "%"}
           />
-          {skin === "OCHOTA" && <div className="nav_box_1"> </div>}
-          {skin === "WOLA" && <div className="nav_box_2"> </div>}
-          {skin === "MOKOTÓW" && <div className="nav_box_3"> </div>}
           <div className="box_1"> </div> <div className="box_2"> </div>
         </div>
       </div>
