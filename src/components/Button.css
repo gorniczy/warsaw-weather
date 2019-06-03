@@ -1,21 +1,44 @@
+.nav_box {
+  display: inline-flex;
+  opacity: 0.87;
+  height: 40px;
+  background-color: #FFFDFD;
+  border-radius: 20px;
+  overflow: visible;
+  z-index: -10;
+  padding: 2px 10px;
+  margin: 10px;
+}
+
+.nav-responsive {
+  display: inline-flex;
+  flex-direction: column;
+  width: 30px;
+  min-width: 30px;
+}
+
+.title {
+  align-self: center;
+  display: inline-block;
+  font-family: AvenirNextCondensed-Regular;
+  font-size: 3.2vw;
+  color: #000000;
+  padding: 0;
+  margin: 0;
+}
+
 .btn {
-  position: absolute;
-  top: 4.5%;
-  left: 2.2%;
-  width: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .btn_img {
-  position: absolute;
-  top: 0;
-  max-width: 100%;
-  padding-bottom: 50%;
+  max-width: 80%;
 }
 
 .dropdown {
-  position: absolute;
-  top: 10%;
-  left: 1%;
   padding: 0;
   margin: 0;
   opacity: 0.87;
@@ -23,7 +46,6 @@
   border-radius: 12px;
   cursor: pointer;
   flex-direction: column;
-  width: 10%;
   min-width: 4.5rem;
 }
 
@@ -52,14 +74,19 @@
   border-bottom-right-radius: 12px;
 }
 
-.nav_box {
-  opacity: 0.87;
-  background-color: #FFFDFD;
-  border-radius: 24px;
-  z-index: -10;
-}
-
 @media only screen and (orientation: portrait) {
+
+  .title {
+    position: absolute;
+    top: 1.5%;
+    left: 4%;
+    font-family: AvenirNextCondensed-Regular;
+    font-size: 5.5vh;
+    margin: 0;
+    color: #4F4F4F;
+    text-shadow: 0 0px 5px rgba(0,0,0,0.20);
+  }
+
   .btn {
     position: absolute;
     top: 3%;

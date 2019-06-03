@@ -5,7 +5,7 @@ import "./Button.css"
 export const Button = props => {
   return (
     <div className="nav_box">
-      <div className="nav-responsive" onMouseEnter={props.dropdown} onMouseLeave={props.dropdown}>
+      <div className="nav-responsive" onMouseEnter={props.dropdown} onMouseLeave={props.dropdown} >
         <div className="btn">
           <img src={btn_img} className="btn_img" alt="button" />
         </div>
