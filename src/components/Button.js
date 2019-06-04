@@ -4,35 +4,41 @@ import "./Button.css"
 
 export const Button = props => {
   return (
-    <div className="nav_box">
-      <div className="nav-responsive" onMouseEnter={props.dropdown} onMouseLeave={props.dropdown} >
-        <div className="btn">
-          <img src={btn_img} className="btn_img" alt="button" />
+    <div className="navbar" onMouseLeave={props.dropdown}>
+      <div className="nav_box">
+        <div
+          className="nav-responsive"
+          onClick={props.dropdown}
+
+        >
+          <div className="btn">
+            <img src={btn_img} className="btn_img" alt="button" />
+          </div>
         </div>
-        <ul className="dropdown" style={{ display: props.showDistricts }}>
-          <li
-            onClick={() => props.skin("Ochota")}
-            style={{ fontSize: props.fontSizeNav }}
-          >
-            Ochota
-          </li>
-          <li
-            onClick={() => props.skin("Wola")}
-            style={{ fontSize: props.fontSizeNav }}
-          >
-            Wola
-          </li>
-          <li
-            onClick={() => props.skin("Mokotów")}
-            style={{ fontSize: props.fontSizeNav }}
-          >
-            Mokotów
-          </li>
-        </ul>
+        <p className="title" style={{ fontSize: props.fontSizeTitle }}>
+          {props.value}
+        </p>
       </div>
-      <p className="title" style={{ fontSize: props.fontSizeTitle }}>
-        {props.value}
-      </p>
+      <ul className="dropdown" style={{ display: props.showDistricts }}>
+        <li
+          onClick={() => props.skin("Ochota")}
+          style={{ fontSize: props.fontSizeNav }}
+        >
+          Ochota
+        </li>
+        <li
+          onClick={() => props.skin("Wola")}
+          style={{ fontSize: props.fontSizeNav }}
+        >
+          Wola
+        </li>
+        <li
+          onClick={() => props.skin("Mokotów")}
+          style={{ fontSize: props.fontSizeNav }}
+        >
+          Mokotów
+        </li>
+      </ul>
     </div>
   )
 }
