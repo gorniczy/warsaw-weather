@@ -9,7 +9,7 @@
   border-radius: 20px;
   overflow: visible;
   z-index: -10;
-  padding: 2px 10px;
+  padding: 0 10px;
   margin: 10px 0 0 10px;
 }
 
@@ -27,7 +27,7 @@
   font-size: 3.2vw;
   color: #000000;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 10px;
 }
 
 .btn {
@@ -39,22 +39,21 @@
 
 .btn_img {
   max-width: 80%;
+  cursor: pointer;
 }
 
 .dropdown {
   padding: 0;
   margin: 0 0 0 10px;
   opacity: 0.87;
-  background: #FFFDFD;
+  background: #E4DFDF;
   border-radius: 12px;
   cursor: pointer;
   flex-direction: column;
-  width: 100px;
-  min-width: 4.5rem;
 }
 
 .dropdown li {
-  padding: 10%;
+  padding: 10px;
   font-family: Arial;
   font-size: 1.2vw;
   color: #000000;
@@ -63,17 +62,17 @@
 }
 
 .dropdown li:nth-of-type(1):hover {
-  background: #E4DFDF;
+  background: #C6C0C0;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
 
 .dropdown li:nth-of-type(2):hover {
-  background: #E4DFDF;
+  background: #C6C0C0;
 }
 
 .dropdown li:nth-of-type(3):hover {
-  background: #E4DFDF;
+  background: #C6C0C0;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
