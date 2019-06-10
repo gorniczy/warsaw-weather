@@ -1,7 +1,7 @@
 import React from "react"
 import { DateTime } from "../components/DateTime"
 import { Weather } from "../components/Weather"
-import { Button } from "../components/Button"
+import { Navbar } from "../components/Navbar"
 import { Skin } from "../components/Skin"
 import { Forecast } from "../components/Forecast"
 import { WeatherGraphics } from "../components/WeatherGraphics"
@@ -155,7 +155,7 @@ class App extends React.Component {
           <Skin
             value={skin}
           />
-          <Button
+          <Navbar
             value={skin}
             skin={this.handleSkinChange}
             dropdown={this.dropdown}
