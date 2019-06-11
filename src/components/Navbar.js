@@ -1,8 +1,8 @@
 import React from "react"
 import btn_img from "../img/button.png"
-import "./Button.css"
+import "./Navbar.css"
 
-export const Button = props => {
+export const Navbar = props => {
   const {
     showDistricts,
     dropdown,
