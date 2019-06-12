@@ -4,7 +4,7 @@ import "./Navbar.css"
 
 export const Navbar = ({
   showDistricts,
-  dropdown,
+  toggleDropdown,
   fontSizeTitle,
   value,
   skin,
@@ -13,10 +13,10 @@ export const Navbar = ({
   return (
     <div
       className="navbar"
-      onMouseLeave={() => (showDistricts === "flex" ? dropdown() : null)}
+      onMouseLeave={() => (showDistricts === "flex" ? toggleDropdown() : null)}
     >
       <div className="nav_box">
-        <div className="nav-responsive" onClick={() => dropdown()}>
+        <div className="nav-responsive" onClick={() => toggleDropdown()}>
           <div className="btn">
             <img src={btn_img} className="btn_img" alt="button" />
           </div>
