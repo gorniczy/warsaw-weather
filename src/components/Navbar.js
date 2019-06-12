@@ -2,15 +2,14 @@ import React from "react"
 import btn_img from "../img/button.png"
 import "./Navbar.css"
 
-export const Navbar = props => {
-  const {
-    showDistricts,
-    dropdown,
-    fontSizeTitle,
-    value,
-    skin,
-    fontSizeNav
-  } = props
+export const Navbar = ({
+  showDistricts,
+  dropdown,
+  fontSizeTitle,
+  value,
+  skin,
+  fontSizeNav
+}) => {
   return (
     <div
       className="navbar"
