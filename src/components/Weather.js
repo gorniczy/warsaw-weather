@@ -1,11 +1,11 @@
 import React from "react"
 import "./Weather.css"
 
-export const Weather = props => {
+export const Weather = ({ fontSize, temperature }) => {
   return (
     <div>
-      <p className="tempC" style={{ fontSize: props.fontSize }}>
-        {props.temperature}˚C
+      <p className="tempC" style={{ fontSize: fontSize }}>
+        {temperature}˚C
       </p>
       <div className="break_1" />
     </div>

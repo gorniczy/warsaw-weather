@@ -2,22 +2,21 @@ import React from "react"
 import btn_img from "../img/button.png"
 import "./Navbar.css"
 
-export const Navbar = props => {
-  const {
-    showDistricts,
-    dropdown,
-    fontSizeTitle,
-    value,
-    skin,
-    fontSizeNav
-  } = props
+export const Navbar = ({
+  showDistricts,
+  toggleDropdown,
+  fontSizeTitle,
+  value,
+  skin,
+  fontSizeNav
+}) => {
   return (
     <div
       className="navbar"
-      onMouseLeave={() => (showDistricts === "flex" ? dropdown() : null)}
+      onMouseLeave={() => (showDistricts === "flex" ? toggleDropdown() : null)}
     >
       <div className="nav_box">
-        <div className="nav-responsive" onClick={() => dropdown()}>
+        <div className="nav-responsive" onClick={() => toggleDropdown()}>
           <div className="btn">
             <img src={btn_img} className="btn_img" alt="button" />
           </div>

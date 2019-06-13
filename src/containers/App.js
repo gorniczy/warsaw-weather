@@ -106,7 +106,7 @@ class App extends React.Component {
     })
   }
 
-  dropdown = () => {
+  toggleDropdown = () => {
     this.setState({
       showDistricts: this.state.showDistricts === "flex" ? "none" : "flex"
     })
@@ -158,7 +158,7 @@ class App extends React.Component {
           <Navbar
             value={skin}
             skin={this.handleSkinChange}
-            dropdown={this.dropdown}
+            toggleDropdown={this.toggleDropdown}
             showDistricts={showDistricts}
             fontSizeNav={appWidth * (landscape ? 0.1 : 0.3) + "%"}
             fontSizeTitle={appWidth * (landscape ? 0.2 : 0.6) + "%"}
