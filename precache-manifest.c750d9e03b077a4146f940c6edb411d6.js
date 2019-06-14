@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/warsaw-weather/static/media/Rain Sun.c273e09e.png"
   },
   {
-    "revision": "d9bb49ecc78e275d03ac",
-    "url": "/warsaw-weather/static/css/main.bc798fe3.chunk.css"
+    "revision": "fd140093d8c6e3398c87",
+    "url": "/warsaw-weather/static/css/main.50ff223f.chunk.css"
   },
   {
     "revision": "9738fab3c6da9254729c",
@@ -52,8 +52,8 @@ self.__precacheManifest = [
     "url": "/warsaw-weather/static/media/Broken Clouds.b63296ad.png"
   },
   {
-    "revision": "d9bb49ecc78e275d03ac",
-    "url": "/warsaw-weather/static/js/main.5bf335b1.chunk.js"
+    "revision": "fd140093d8c6e3398c87",
+    "url": "/warsaw-weather/static/js/main.31d74753.chunk.js"
   },
   {
     "revision": "3f6e10315f92b28c0226c3a8f457c222",
@@ -104,7 +104,7 @@ self.__precacheManifest = [
     "url": "/warsaw-weather/static/media/AvenirNextCondensed-UltraLight.0f21db47.ttf"
   },
   {
-    "revision": "5d11600c430cfe3eec81f757a94ab9cc",
+    "revision": "79e065611ad70ee85f43a798e9f4122f",
     "url": "/warsaw-weather/index.html"
   }
 ];
