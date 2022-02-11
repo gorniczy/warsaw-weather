@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://gorniczy.github.io/warsaw-weather/",
   "dependencies": {
-    "ajv": "^6.10.0",
+    "ajv": "^6.12.3",
     "gh-pages": "^2.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
